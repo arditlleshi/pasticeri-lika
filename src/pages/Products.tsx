@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Search, Filter, ChevronDown } from 'lucide-react';
+import { ChevronDown, Search } from "lucide-react";
+import { useState } from "react";
 
 const categories = [
   "All",
@@ -13,21 +13,13 @@ const categories = [
 
 const products = [
   {
-    id: 1,
-    name: "Artisan Sourdough",
-    price: "450 LEK",
-    category: "Breads",
-    description: "Traditional sourdough bread made with our 25-year-old starter",
-    image: "https://images.unsplash.com/photo-1585478259715-876acc5be8eb?auto=format&fit=crop&q=80",
-    bestseller: true,
-  },
-  {
     id: 2,
     name: "Chocolate Éclair",
     price: "280 LEK",
     category: "Pastries",
     description: "Classic French pastry filled with chocolate cream",
-    image: "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&q=80",
+    image:
+      "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&q=80",
   },
   {
     id: 3,
@@ -35,7 +27,8 @@ const products = [
     price: "25000 LEK",
     category: "Cakes",
     description: "Custom-designed wedding cakes with your choice of flavors",
-    image: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&q=80",
+    image:
+      "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&q=80",
   },
   {
     id: 4,
@@ -43,7 +36,8 @@ const products = [
     price: "180 LEK",
     category: "Traditional",
     description: "Handmade baklava with walnuts and honey syrup",
-    image: "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&q=80",
+    image:
+      "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&q=80",
     bestseller: true,
   },
   // Add more products as needed
@@ -55,9 +49,10 @@ export default function Products() {
   const [sortBy, setSortBy] = useState("featured");
 
   const filteredProducts = products
-    .filter(product => 
-      (selectedCategory === "All" || product.category === selectedCategory) &&
-      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    .filter(
+      (product) =>
+        (selectedCategory === "All" || product.category === selectedCategory) &&
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
     )
     .sort((a, b) => {
       if (sortBy === "price-asc") return parseInt(a.price) - parseInt(b.price);
@@ -70,12 +65,13 @@ export default function Products() {
     <div className="pt-20">
       {/* Hero Section */}
       <div className="bg-rose-50">
-        <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="max-w-7xl mx-auto px-4 py-10">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
             Our Products
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl">
-            Discover our wide range of freshly baked goods, from traditional Albanian pastries to international favorites.
+            Discover our wide range of freshly baked goods, from traditional
+            Albanian pastries to international favorites.
           </p>
         </div>
       </div>
@@ -99,8 +95,7 @@ export default function Products() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="appearance-none bg-white border rounded-full px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-rose-500"
-                >
+                  className="appearance-none bg-white border rounded-full px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-rose-500">
                   <option value="featured">Featured</option>
                   <option value="price-asc">Price: Low to High</option>
                   <option value="price-desc">Price: High to Low</option>
@@ -118,8 +113,7 @@ export default function Products() {
                     selectedCategory === category
                       ? "bg-rose-600 text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
-                >
+                  }`}>
                   {category}
                 </button>
               ))}
@@ -133,7 +127,7 @@ export default function Products() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => (
             <div key={product.id} className="group">
-              <div className="relative aspect-square overflow-hidden rounded-2xl">
+              <div className="relative aspect-square overflow-hidden rounded-2xl max-h-96">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -148,15 +142,16 @@ export default function Products() {
               <div className="mt-4">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900">{product.name}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {product.name}
+                    </h3>
                     <p className="text-sm text-rose-600">{product.category}</p>
                   </div>
-                  <span className="text-lg font-medium text-gray-900">{product.price}</span>
+                  <span className="text-lg font-medium text-gray-900">
+                    {product.price}
+                  </span>
                 </div>
                 <p className="mt-2 text-gray-600">{product.description}</p>
-                <button className="mt-4 w-full bg-gray-100 hover:bg-rose-600 hover:text-white text-gray-900 px-4 py-2 rounded-full transition-colors">
-                  Add to Cart
-                </button>
               </div>
             </div>
           ))}

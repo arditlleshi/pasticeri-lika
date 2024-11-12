@@ -1,191 +1,225 @@
-import React, { useState } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
-
-const galleryItems = [
-  {
-    id: 1,
-    title: "Traditional Baklava",
-    image:
-      "https://pasticerilika.al/wp-content/uploads/2019/06/AI3I2283-300x250.jpg",
-    category: "Traditional",
-  },
-  {
-    id: 2,
-    title: "Chocolate Truffles",
-    image:
-      "https://www.shutterstock.com/shutterstock/photos/2058295571/display_1500/stock-photo-tasty-dark-chocolate-truffles-with-cocoa-dusting-on-a-brown-background-2058295571.jpg",
-    category: "Chocolates",
-  },
-  {
-    id: 3,
-    title: "Wedding Cake",
-    image:
-      "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&q=80",
-    category: "Special Occasions",
-  },
-  {
-    id: 4,
-    title: "Fruit Tart",
-    image:
-      "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&q=80",
-    category: "Pastries",
-  },
-  {
-    id: 5,
-    title: "Assorted Macarons",
-    image:
-      "https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&q=80",
-    category: "Pastries",
-  },
-  {
-    id: 6,
-    title: "Birthday Cake",
-    image:
-      "https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&q=80",
-    category: "Special Occasions",
-  },
-  {
-    id: 7,
-    title: "Chocolate Eclairs",
-    image:
-      "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&q=80",
-    category: "Pastries",
-  },
-  {
-    id: 8,
-    title: "Traditional Trilece",
-    image:
-      "https://images.unsplash.com/photo-1488477304112-4944851de03d?auto=format&fit=crop&q=80",
-    category: "Traditional",
-  },
-  {
-    id: 9,
-    title: "Assorted Cookies",
-    image:
-      "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&q=80",
-    category: "Cookies",
-  },
-];
+import { ChevronDown, Search } from "lucide-react";
+import { useState } from "react";
 
 const categories = [
   "All",
-  "Traditional",
+  "Breads",
   "Pastries",
-  "Special Occasions",
-  "Chocolates",
+  "Cakes",
   "Cookies",
+  "Traditional",
+  "Seasonal",
 ];
 
-export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+const cakeSubcategories = {
+  Frozen: ["Ice Cream Cakes", "Frozen Yogurt Cakes", "Gelato Cakes"],
+  Traditional: ["Chocolate", "Vanilla", "Red Velvet", "Carrot"],
+  Premium: ["Wedding Cakes", "Custom Design", "Special Occasion"],
+};
+
+const products = [
+  {
+    id: 1,
+    name: "Ice Cream Cake",
+    price: "3800 LEK",
+    category: "Cakes",
+    subcategory: "Frozen",
+    description: "Delicious layers of ice cream and cake",
+    image:
+      "https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=500&auto=format&fit=crop&q=60",
+  },
+  {
+    id: 2,
+    name: "Wedding Cake",
+    price: "25000 LEK",
+    category: "Cakes",
+    subcategory: "Premium",
+    description: "Custom-designed wedding cakes with your choice of flavors",
+    image:
+      "https://plus.unsplash.com/premium_photo-1674498802496-c9a5983ef176?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FrZSUyMHdlZGRpbmd8ZW58MHx8MHx8fDA%3D",
+  },
+  {
+    id: 3,
+    name: "Traditional Chocolate Cake",
+    price: "2800 LEK",
+    category: "Cakes",
+    subcategory: "Traditional",
+    description: "Classic chocolate cake with rich ganache",
+    image:
+      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80",
+  },
+  {
+    id: 4,
+    name: "Traditional Vanilla Cake",
+    price: "2800 LEK",
+    category: "Cakes",
+    subcategory: "Traditional",
+    description: "Classic vanilla cake with a hint of sweetness",
+    image:
+      "https://plus.unsplash.com/premium_photo-1664391788731-8b6b992dc042?w=500&auto=format&fit=crop&q=60",
+  },
+  {
+    id: 5,
+    name: "Red Velvet Cake",
+    price: "2800 LEK",
+    category: "Cakes",
+    subcategory: "Traditional",
+    description: "Classic red velvet cake with a hint of sweetness",
+    image:
+      "https://plus.unsplash.com/premium_photo-1713920189876-e07a673cd572?w=500&auto=format&fit=crop&q=60",
+  },
+];
+
+export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedSubcategory, setSelectedSubcategory] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortBy, setSortBy] = useState("featured");
 
-  const filteredItems =
-    selectedCategory === "All"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === selectedCategory);
-
-  const handlePrevious = () => {
-    setSelectedImage((prev) => {
-      if (prev === null) return null;
-      return prev === 0 ? filteredItems.length - 1 : prev - 1;
-    });
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    setSelectedSubcategory("");
   };
 
-  const handleNext = () => {
-    setSelectedImage((prev) => {
-      if (prev === null) return null;
-      return prev === filteredItems.length - 1 ? 0 : prev + 1;
+  const filteredProducts = products
+    .filter((product) => {
+      const categoryMatch =
+        selectedCategory === "All" || product.category === selectedCategory;
+      const subcategoryMatch =
+        !selectedSubcategory || product.subcategory === selectedSubcategory;
+      const searchMatch = product.name
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase());
+      return categoryMatch && subcategoryMatch && searchMatch;
+    })
+    .sort((a, b) => {
+      if (sortBy === "price-asc") return parseInt(a.price) - parseInt(b.price);
+      if (sortBy === "price-desc") return parseInt(b.price) - parseInt(a.price);
+      if (sortBy === "name") return a.name.localeCompare(b.name);
+      return 0;
     });
-  };
 
   return (
-    <section id="gallery" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">
-            Our Sweet Gallery
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Explore our delicious creations and get inspired for your next order
+    <div className="pt-20">
+      {/* Hero Section */}
+      <div className="bg-rose-50">
+        <div className="max-w-7xl mx-auto px-4 py-10">
+          <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
+            Our Products
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl">
+            Discover our wide range of freshly baked goods, from traditional
+            Albanian pastries to international favorites.
           </p>
         </div>
+      </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full transition-colors ${
-                selectedCategory === category
-                  ? "bg-rose-600 text-white"
-                  : "bg-white text-gray-700 hover:bg-rose-100"
-              }`}>
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item, index) => (
-            <div
-              key={item.id}
-              className="group cursor-pointer"
-              onClick={() => setSelectedImage(index)}>
-              <div className="relative aspect-square overflow-hidden rounded-xl">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
+      {/* Filters and Search */}
+      <div className="bg-white sticky top-20 z-40 border-b">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-4 w-full md:w-auto">
+              <div className="relative flex-1 md:w-64">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-rose-500"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <h3 className="text-white text-xl font-semibold">
-                    {item.title}
-                  </h3>
-                </div>
+              </div>
+              <div className="relative">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="appearance-none bg-white border rounded-full px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-rose-500">
+                  <option value="featured">Featured</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="name">Name</option>
+                </select>
+                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
               </div>
             </div>
-          ))}
-        </div>
+            <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => handleCategoryChange(category)}
+                  className={`px-4 py-1 rounded-full whitespace-nowrap transition-colors ${
+                    selectedCategory === category
+                      ? "bg-rose-600 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}>
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
 
-        {/* Modal */}
-        {selectedImage !== null && (
-          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 text-white hover:text-rose-500 transition-colors">
-              <X className="h-8 w-8" />
-            </button>
-            <button
-              onClick={handlePrevious}
-              className="absolute left-4 text-white hover:text-rose-500 transition-colors">
-              <ChevronLeft className="h-8 w-8" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="absolute right-4 text-white hover:text-rose-500 transition-colors">
-              <ChevronRight className="h-8 w-8" />
-            </button>
-            <div className="max-w-4xl max-h-[80vh] relative">
-              <img
-                src={filteredItems[selectedImage].image}
-                alt={filteredItems[selectedImage].title}
-                className="max-w-full max-h-[80vh] object-contain"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4">
-                <h3 className="text-xl font-semibold">
-                  {filteredItems[selectedImage].title}
-                </h3>
-                <p className="text-rose-400">
-                  {filteredItems[selectedImage].category}
+          {/* Subcategories for Cakes */}
+          {selectedCategory === "Cakes" && (
+            <div className="mt-4 flex gap-2 overflow-x-auto">
+              {Object.keys(cakeSubcategories).map((subcategory) => (
+                <button
+                  key={subcategory}
+                  onClick={() => setSelectedSubcategory(subcategory)}
+                  className={`px-3 py-1 rounded-full text-sm whitespace-nowrap transition-colors ${
+                    selectedSubcategory === subcategory
+                      ? "bg-rose-200 text-rose-800"
+                      : "bg-rose-50 text-rose-600 hover:bg-rose-100"
+                  }`}>
+                  {subcategory}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Products Grid */}
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filteredProducts.map((product) => (
+            <div key={product.id} className="group">
+              <div className="relative aspect-square overflow-hidden rounded-xl">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                {/* {product.bestseller && (
+                  <div className="absolute top-2 left-2 bg-rose-600 text-white px-2 py-1 rounded-full text-xs font-medium">
+                    Bestseller
+                  </div>
+                )} */}
+              </div>
+              <div className="mt-3">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-900">
+                      {product.name}
+                    </h3>
+                    <p className="text-xs text-rose-600">{product.category}</p>
+                    {product.subcategory && (
+                      <p className="text-xs text-gray-500">
+                        {product.subcategory}
+                      </p>
+                    )}
+                  </div>
+                  <span className="text-sm font-medium text-gray-900">
+                    {product.price}
+                  </span>
+                </div>
+                <p className="mt-1 text-xs text-gray-600 line-clamp-2">
+                  {product.description}
                 </p>
               </div>
             </div>
-          </div>
-        )}
+          ))}
+        </div>
       </div>
-    </section>
+    </div>
   );
 }

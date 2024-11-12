@@ -17,9 +17,9 @@ export default function ProductCard({ name, price, image, category }: ProductCar
           alt={name}
           className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
         />
-        <button className="absolute top-4 right-4 p-2 rounded-full bg-white/80 hover:bg-white transition-colors">
+        {/* <button className="absolute top-4 right-4 p-2 rounded-full bg-white/80 hover:bg-white transition-colors">
           <Heart className="h-5 w-5 text-rose-600" />
-        </button>
+        </button> */}
       </div>
       <div className="mt-4">
         <span className="text-sm text-rose-600">{category}</span>

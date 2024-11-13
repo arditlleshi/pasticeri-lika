@@ -40,6 +40,12 @@ export default function Navbar() {
                 Gallery
               </Link>
               <Link 
+                to="/bar-menu" 
+                className={`${isActive('/bar-menu') ? 'text-rose-600' : 'text-gray-900'} hover:text-rose-600 transition-colors`}
+              >
+                Bar Menu
+              </Link>
+              <Link 
                 to="/about" 
                 className={`${isActive('/about') ? 'text-rose-600' : 'text-gray-900'} hover:text-rose-600 transition-colors`}
               >
@@ -83,6 +89,13 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               Gallery
+            </Link>
+            <Link 
+              to="/bar-menu" 
+              className={`block px-3 py-2 ${isActive('/bar-menu') ? 'text-rose-600' : 'text-gray-900'} hover:text-rose-600`}
+              onClick={() => setIsOpen(false)}
+            >
+              Bar Menu
             </Link>
             <Link 
               to="/about" 

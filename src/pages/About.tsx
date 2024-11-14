@@ -1,4 +1,4 @@
-import { Clock, Award, Users, Cake, Star, ChevronRight } from 'lucide-react';
+import { Clock, Award, Users, Cake } from 'lucide-react';
 
 const stats = [
   { icon: Clock, label: "Years of Experience", value: "25+" },
@@ -7,42 +7,21 @@ const stats = [
   { icon: Cake, label: "Products Made Daily", value: "100+" },
 ];
 
-const team = [
+const locations = [
   {
-    name: "Elena Lika",
-    role: "Master Baker & Owner",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80",
-    quote: "Baking is not just a profession, it's our family's legacy of love.",
+    name: "Rruga e Barrikadave",
+    description: "Our flagship store, where the Pasticeri Lika story began. This location features our main bakery and café, serving fresh pastries and coffee daily.",
+    image: "https://images.unsplash.com/photo-1564759298141-cef86f51d4d4?auto=format&fit=crop&q=80",
   },
   {
-    name: "Mark Hoxha",
-    role: "Head Pastry Chef",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80",
-    quote: "Every pastry tells a story of tradition and innovation.",
+    name: "Blloku District",
+    description: "Located in Tirana's trendiest neighborhood, this modern location combines traditional favorites with contemporary café culture.",
+    image: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80",
   },
   {
-    name: "Ana Koci",
-    role: "Cake Designer",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80",
-    quote: "Creating beautiful cakes is my way of making dreams come true.",
-  },
-];
-
-const testimonials = [
-  {
-    text: "The best bakery in Tirana! Their croissants are better than the ones I've had in Paris.",
-    author: "Maria K.",
-    rating: 5,
-  },
-  {
-    text: "Our wedding cake was absolutely stunning. The team went above and beyond our expectations.",
-    author: "John & Sarah",
-    rating: 5,
-  },
-  {
-    text: "Traditional Albanian pastries at their finest. Reminds me of my grandmother's baking.",
-    author: "Arben M.",
-    rating: 5,
+    name: "New Bazaar",
+    description: "Our newest location in the historic New Bazaar area, featuring an open kitchen where you can watch our bakers at work.",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80",
   },
 ];
 
@@ -104,10 +83,6 @@ export default function About() {
                 Every recipe has been perfected over generations, ensuring that each
                 bite tells our story of passion and dedication.
               </p>
-              <button className="bg-rose-600 text-white px-6 py-3 rounded-full hover:bg-rose-700 transition-colors flex items-center">
-                Read More About Our Journey
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </button>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img
@@ -125,59 +100,30 @@ export default function About() {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Locations Section */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl font-serif font-bold text-gray-900 text-center mb-16">
-            Meet Our Team
+            Dyqanet tona
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {team.map((member, index) => (
-              <div key={index} className="text-center">
-                <div className="relative mb-6">
+            {locations.map((location, index) => (
+              <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <div className="aspect-[4/3]">
                   <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-48 h-48 rounded-full mx-auto object-cover"
+                    src={location.image}
+                    alt={location.name}
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-rose-600 text-white px-4 py-1 rounded-full text-sm">
-                      {member.role}
-                    </div>
-                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {member.name}
-                </h3>
-                <p className="text-gray-600 italic">"{member.quote}"</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-serif font-bold text-gray-900 text-center mb-16">
-            What Our Customers Say
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-5 w-5 text-yellow-400 fill-current"
-                    />
-                  ))}
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {location.name}
+                  </h3>
+                  <p className="text-gray-600">
+                    {location.description}
+                  </p>
                 </div>
-                <p className="text-gray-600 mb-4 italic">"{testimonial.text}"</p>
-                <p className="text-gray-900 font-semibold">{testimonial.author}</p>
               </div>
             ))}
           </div>

@@ -1,4 +1,4 @@
-import { ChevronRight, Star } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import ProductCard from "../components/ProductCard";
 
 export default function Home() {
@@ -38,7 +38,7 @@ export default function Home() {
               Our Signature Products
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Discover our selection of freshly baked goods made with love and
+              Discover our wide range of freshly baked goods made with love and
               tradition
             </p>
           </div>
@@ -89,17 +89,12 @@ export default function Home() {
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <div className="flex items-center mb-2">
-                    <Star className="h-5 w-5 text-yellow-400" />
-                    <span className="ml-2 font-semibold text-gray-900">
-                      4.9/5 Rating
-                    </span>
-                  </div>
-                  <p className="text-gray-600">From happy customers</p>
+                  <div className="font-semibold text-2xl text-gray-900 mb-2">25+</div>
+                  <p className="text-gray-600">Years of excellence</p>
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-900 mb-2">25+</div>
-                  <p className="text-gray-600">Years of excellence</p>
+                  <div className="font-semibold text-2xl text-gray-900 mb-2">3</div>
+                  <p className="text-gray-600">Locations in Tirana</p>
                 </div>
               </div>
             </div>

@@ -9,17 +9,17 @@ const stats = [
 
 const locations = [
   {
-    name: "Rruga e Barrikadave",
+    name: "Rruga e Durrësit",
     description: "Our flagship store, where the Pasticeri Lika story began. This location features our main bakery and café, serving fresh pastries and coffee daily.",
     image: "https://images.unsplash.com/photo-1564759298141-cef86f51d4d4?auto=format&fit=crop&q=80",
   },
   {
-    name: "Blloku District",
+    name: "Pallatet Çabej",
     description: "Located in Tirana's trendiest neighborhood, this modern location combines traditional favorites with contemporary café culture.",
     image: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80",
   },
   {
-    name: "New Bazaar",
+    name: "Rruga Xhanfize Keko",
     description: "Our newest location in the historic New Bazaar area, featuring an open kitchen where you can watch our bakers at work.",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80",
   },

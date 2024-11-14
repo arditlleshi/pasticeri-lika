@@ -74,15 +74,19 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center text-gray-400">
                 <Phone className="h-5 w-5 mr-3 text-rose-500" />
-                <span>+355 69 123 4567</span>
+                <span>+355 67 400 4072</span>
+              </li>
+              <li className="flex items-center text-gray-400">
+                <Phone className="h-5 w-5 mr-3 text-rose-500" />
+                <span>+355 69 874 3912</span>
               </li>
               <li className="flex items-center text-gray-400">
                 <Mail className="h-5 w-5 mr-3 text-rose-500" />
-                <span>info@pasticerilika.com</span>
+                <a href="mailto:info@pasticerilika.al">info@pasticerilika.al</a>
               </li>
               <li className="flex items-center text-gray-400">
                 <MapPin className="h-5 w-5 mr-3 text-rose-500" />
-                <span>Rruga e Barrikadave, Tirana, Albania</span>
+                <span>Tirana, Albania</span>
               </li>
             </ul>
           </div>

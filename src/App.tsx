@@ -4,8 +4,9 @@ import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Gallery from "./components/Gallery";
 import About from "./pages/About";
-import Footer from "./components/Footer";
 import BarMenu from "./pages/BarMenu";
+import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/about" element={<About />} />
         <Route path="/bar-menu" element={<BarMenu />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </div>

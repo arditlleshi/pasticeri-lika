@@ -35,30 +35,32 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">
-              Our Signature Products
+              Produktet tona kryesore
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Discover our wide range of freshly baked goods made with love and
-              tradition
+              {/* Discover our wide range of freshly baked goods made with love and
+              tradition */}
+              Zbuloni një gamë të gjerë të produkteve të freskëta të bëra me
+              dashuri dhe traditë
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ProductCard
               name="Classic Croissant"
               price="350 LEK"
-              category="Pastries"
+              category="Ëmbëlsira"
               image="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80"
             />
             <ProductCard
               name="Chocolate Cake"
               price="2800 LEK"
-              category="Cakes"
+              category="Torta"
               image="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80"
             />
             <ProductCard
               name="Sourdough Bread"
               price="280 LEK"
-              category="Breads"
+              category="Buke"
               image="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80"
             />
           </div>
@@ -89,11 +91,15 @@ export default function Home() {
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div>
-                  <div className="font-semibold text-2xl text-gray-900 mb-2">25+</div>
+                  <div className="font-semibold text-2xl text-gray-900 mb-2">
+                    25+
+                  </div>
                   <p className="text-gray-600">Years of excellence</p>
                 </div>
                 <div>
-                  <div className="font-semibold text-2xl text-gray-900 mb-2">3</div>
+                  <div className="font-semibold text-2xl text-gray-900 mb-2">
+                    3
+                  </div>
                   <p className="text-gray-600">Locations in Tirana</p>
                 </div>
               </div>

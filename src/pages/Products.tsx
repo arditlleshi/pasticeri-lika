@@ -28,7 +28,7 @@ const products = [
     category: "Cakes",
     description: "Custom-designed wedding cakes with your choice of flavors",
     image:
-      "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1678473289821-1818e3f82e9a?w=500&auto=format&fit=crop&q=120",
   },
   {
     id: 4,

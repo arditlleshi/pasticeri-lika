@@ -1,5 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import ProductCard from "../components/ProductCard";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -22,10 +23,12 @@ export default function Home() {
             <p className="text-xl mb-8">
               Crafting moments of joy with our freshly baked goods since 1995
             </p>
-            <button className="bg-rose-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-rose-700 transition-colors flex items-center">
-              Explore Our Menu
+            <Link
+              to="/products"
+              className="w-fit bg-rose-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-rose-700 transition-colors flex items-center">
+              Explore Our Products
               <ChevronRight className="ml-2 h-5 w-5" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>

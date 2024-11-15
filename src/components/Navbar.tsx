@@ -1,8 +1,7 @@
 import { Cake, Menu, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-// import logo from '../assets/main-logo.png';
-
+import logo from '../assets/main-logo.png';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,13 +16,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
-            {/* <img src={logo} alt="Pasticeri Lika" className="h-12 w-52" /> */}
-            <div className="bg-gradient-to-r from-rose-600 to-rose-500 p-2 rounded-lg">
+            <img src={logo} alt="Pasticeri Lika" className="h-12 w-52" />
+            {/* <div className="bg-gradient-to-r from-rose-600 to-rose-500 p-2 rounded-lg">
               <Cake className="h-8 w-8 text-white" />
             </div>
             <span className="ml-2 text-2xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
               Pasticeri Lika
-            </span>
+            </span> */}
           </Link>
 
           <div className="hidden md:block">
@@ -34,8 +33,9 @@ export default function Navbar() {
                   isActive("/")
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
-                } hover:text-rose-600 transition-colors`}>
+                } hover:text-rose-600 group relative transition-colors`}>
                 Home
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
               </Link>
               <Link
                 to="/products"
@@ -43,8 +43,9 @@ export default function Navbar() {
                   isActive("/products")
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
-                } hover:text-rose-600 transition-colors`}>
+                } hover:text-rose-600 group relative transition-colors`}>
                 Our Products
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
               </Link>
               <Link
                 to="/gallery"
@@ -52,8 +53,9 @@ export default function Navbar() {
                   isActive("/gallery")
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
-                } hover:text-rose-600 transition-colors`}>
+                } hover:text-rose-600 group relative transition-colors`}>
                 Gallery
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
               </Link>
               <Link
                 to="/bar-menu"
@@ -61,8 +63,9 @@ export default function Navbar() {
                   isActive("/bar-menu")
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
-                } hover:text-rose-600 transition-colors`}>
+                } hover:text-rose-600 group relative transition-colors`}>
                 Bar Menu
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
               </Link>
               <Link
                 to="/about"
@@ -70,8 +73,9 @@ export default function Navbar() {
                   isActive("/about")
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
-                } hover:text-rose-600 transition-colors`}>
+                } hover:text-rose-600 group relative transition-colors`}>
                 About
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
               </Link>
               <Link
                 to="/contact"
@@ -79,10 +83,11 @@ export default function Navbar() {
                   isActive("/contact")
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
-                } hover:text-rose-600 transition-colors`}>
+                } hover:text-rose-600 group relative transition-colors`}>
                 Contact
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
               </Link>
-              <button className="flex items-center bg-gradient-to-r from-rose-600 to-rose-500 text-white px-6 py-2 rounded-full hover:from-rose-700 hover:to-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button className="flex items-center bg-gradient-to-r from-rose-700 to-rose-500 text-white px-6 py-2 rounded-full hover:from-rose-500 hover:to-rose-700 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <ShoppingBag className="h-4 w-4 mr-2" />
                 Order Now
               </button>

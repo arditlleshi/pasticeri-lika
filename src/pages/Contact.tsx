@@ -84,11 +84,11 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8">
+            <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md mx-auto lg:mx-0">
+              <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">
                 Send us a Message
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
                     Full Name
@@ -98,7 +98,7 @@ export default function Contact() {
                     id="fullName"
                     name="fullName"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors"
                     placeholder="Your full name"
                   />
                 </div>
@@ -111,7 +111,7 @@ export default function Contact() {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -123,7 +123,7 @@ export default function Contact() {
                     type="tel"
                     id="phone"
                     name="phone"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors"
                     placeholder="+355 6X XXX XXXX"
                   />
                 </div>
@@ -135,14 +135,14 @@ export default function Contact() {
                     id="message"
                     name="message"
                     required
-                    rows={6}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors resize-none"
+                    rows={4}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-rose-500 focus:border-transparent transition-colors resize-none"
                     placeholder="Your message..."
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-rose-600 text-white px-6 py-3 rounded-lg hover:bg-rose-700 transition-colors flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-rose-600 to-rose-500 text-white px-6 py-2 rounded-lg hover:from-rose-700 hover:to-rose-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
                 >
                   Send Message
                   <Send className="h-5 w-5" />

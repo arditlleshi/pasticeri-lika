@@ -1,18 +1,51 @@
 import { ChevronRight } from "lucide-react";
-import ProductCard from "../components/ProductCard";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import ProductCard from "../components/ProductCard";
+
+const heroImages = [
+  {
+    url: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80",
+    alt: "Fresh Bakery",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80",
+    alt: "Bakery Interior",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80",
+    alt: "Fresh Pastries",
+  },
+];
 
 export default function Home() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div>
       {/* Hero Section */}
       <section className="relative h-screen">
         <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80"
-            alt="Bakery Hero"
-            className="w-full h-full object-cover"
-          />
+          {heroImages.map((image, index) => (
+            <img
+              key={image.url}
+              src={image.url}
+              alt={image.alt}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                index === currentImageIndex ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
@@ -25,7 +58,7 @@ export default function Home() {
             </p>
             <Link
               to="/products"
-              className="w-fit bg-rose-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-rose-700 transition-colors flex items-center">
+              className="w-fit bg-gradient-to-r from-rose-600 to-rose-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-rose-700 hover:to-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center">
               Explore Our Products
               <ChevronRight className="ml-2 h-5 w-5" />
             </Link>
@@ -33,7 +66,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products */}
+      {/* Rest of the component remains the same */}
+      {/* Featured Products Section */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
@@ -41,8 +75,6 @@ export default function Home() {
               Produktet tona kryesore
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {/* Discover our wide range of freshly baked goods made with love and
-              tradition */}
               Zbuloni një gamë të gjerë të produkteve të freskëta të bëra me
               dashuri dhe traditë
             </p>

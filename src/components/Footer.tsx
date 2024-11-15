@@ -13,7 +13,7 @@ export default function Footer() {
               <div className="bg-gradient-to-r from-rose-600 to-rose-500 p-2 rounded-lg">
                 <Cake className="h-6 w-6 text-white" />
               </div>
-              <span className="ml-2 text-xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-300">
+              <span className="ml-2 text-xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
                 Pasticeri Lika
               </span>
             </div>
@@ -24,12 +24,12 @@ export default function Footer() {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-gray-400 hover:text-rose-400 transition-colors">
+                className="text-gray-400 hover:text-rose-500 transition-colors">
                 <Instagram className="h-6 w-6" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-rose-400 transition-colors">
+                className="text-gray-400 hover:text-rose-500 transition-colors">
                 <Facebook className="h-6 w-6" />
               </a>
             </div>
@@ -37,35 +37,35 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-300">
+            <h4 className="text-lg font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
               Quick Links
             </h4>
             <ul className="space-y-4">
               <li>
                 <Link
                   to="/"
-                  className="text-gray-300 hover:text-rose-400 transition-colors">
+                  className="text-gray-300 hover:text-rose-500 transition-colors">
                   Home
                 </Link>
               </li>
               <li>
                 <Link
                   to="/products"
-                  className="text-gray-300 hover:text-rose-400 transition-colors">
+                  className="text-gray-300 hover:text-rose-500 transition-colors">
                   Our Products
                 </Link>
               </li>
               <li>
                 <Link
                   to="/gallery"
-                  className="text-gray-300 hover:text-rose-400 transition-colors">
+                  className="text-gray-300 hover:text-rose-500 transition-colors">
                   Gallery
                 </Link>
               </li>
               <li>
                 <Link
                   to="/about"
-                  className="text-gray-300 hover:text-rose-400 transition-colors">
+                  className="text-gray-300 hover:text-rose-500 transition-colors">
                   About Us
                 </Link>
               </li>
@@ -74,24 +74,24 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-300">
+            <h4 className="text-lg font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
               Contact Us
             </h4>
             <ul className="space-y-4">
               <li className="flex items-center text-gray-300">
-                <Phone className="h-5 w-5 mr-3 text-rose-400" />
+                <Phone className="h-5 w-5 mr-3 text-rose-500" />
                 <span>+355 67 400 4072</span>
               </li>
               <li className="flex items-center text-gray-300">
-                <Phone className="h-5 w-5 mr-3 text-rose-400" />
+                <Phone className="h-5 w-5 mr-3 text-rose-500" />
                 <span>+355 69 874 3912</span>
               </li>
               <li className="flex items-center text-gray-300">
-                <Mail className="h-5 w-5 mr-3 text-rose-400" />
+                <Mail className="h-5 w-5 mr-3 text-rose-500" />
                 <a href="mailto:info@pasticerilika.al">info@pasticerilika.al</a>
               </li>
               <li className="flex items-center text-gray-300">
-                <MapPin className="h-5 w-5 mr-3 text-rose-400" />
+                <MapPin className="h-5 w-5 mr-3 text-rose-500" />
                 <span>Tirana, Albania</span>
               </li>
             </ul>
@@ -99,7 +99,7 @@ export default function Footer() {
 
           {/* Opening Hours */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-300">
+            <h4 className="text-lg font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
               Opening Hours
             </h4>
             <ul className="space-y-4">

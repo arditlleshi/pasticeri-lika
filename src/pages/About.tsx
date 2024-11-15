@@ -1,4 +1,4 @@
-import { Clock, Award, Users, Cake } from 'lucide-react';
+import { Clock, Award, Users, Cake, MapPin } from 'lucide-react';
 
 const stats = [
   { icon: Clock, label: "Years of Experience", value: "25+" },
@@ -12,16 +12,19 @@ const locations = [
     name: "Rruga e Durrësit",
     description: "Our flagship store, where the Pasticeri Lika story began. This location features our main bakery and café, serving fresh pastries and coffee daily.",
     image: "https://images.unsplash.com/photo-1564759298141-cef86f51d4d4?auto=format&fit=crop&q=80",
+    mapUrl: "https://maps.google.com/?q=41.3275,19.8187", // Coordinates for Rruga e Durrësit
   },
   {
     name: "Pallatet Çabej",
     description: "Located in Tirana's trendiest neighborhood, this modern location combines traditional favorites with contemporary café culture.",
     image: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80",
+    mapUrl: "https://maps.google.com/?q=41.3186,19.8145", // Coordinates for Pallatet Çabej
   },
   {
     name: "Rruga Xhanfize Keko",
     description: "Our newest location in the historic New Bazaar area, featuring an open kitchen where you can watch our bakers at work.",
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80",
+    mapUrl: "https://maps.google.com/?q=41.3297,19.8235", // Coordinates for Rruga Xhanfize Keko
   },
 ];
 
@@ -109,12 +112,23 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {locations.map((location, index) => (
               <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <div className="aspect-[4/3]">
+                <div className="relative aspect-[4/3] group">
                   <img
                     src={location.image}
                     alt={location.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:opacity-30 transition-opacity duration-300"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <a
+                      href={location.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-rose-600 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-rose-700 transition-colors"
+                    >
+                      <MapPin className="h-5 w-5" />
+                      View on Map
+                    </a>
+                  </div>
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">

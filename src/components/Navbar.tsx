@@ -13,12 +13,12 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { path: "/", label: "Kreu" },
-    { path: "/products", label: "Produktet Tona" },
-    { path: "/gallery", label: "Galeria" },
-    { path: "/bar-menu", label: "Bar Menu" },
-    { path: "/about", label: "Rreth Nesh" },
-    { path: "/contact", label: "Kontakt" },
+    { path: "/pasticeri-lika", label: "Kreu" },
+    { path: "/pasticeri-lika/produktet-tona", label: "Produktet Tona" },
+    { path: "/pasticeri-lika/galeria", label: "Galeria" },
+    { path: "/pasticeri-lika/bar-menu", label: "Bar Menu" },
+    { path: "/pasticeri-lika/rreth-nesh", label: "Rreth Nesh" },
+    { path: "/pasticeri-lika/kontakt", label: "Kontakt" },
   ];
 
   const handleLinkClick = (path: string) => {

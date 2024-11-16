@@ -16,12 +16,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Pasticeri Lika" className="h-12 w-52" />
+            <img src={logo} alt="Pastiçeri Lika" className="h-12 w-52" />
             {/* <div className="bg-gradient-to-r from-rose-600 to-rose-500 p-2 rounded-lg">
               <Cake className="h-8 w-8 text-white" />
             </div>
             <span className="ml-2 text-2xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
-              Pasticeri Lika
+              Pastiçeri Lika
             </span> */}
           </Link>
 
@@ -34,7 +34,7 @@ export default function Navbar() {
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
                 } hover:text-rose-600 group relative transition-colors`}>
-                Home
+                Kreu
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
               </Link>
               <Link
@@ -44,7 +44,7 @@ export default function Navbar() {
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
                 } hover:text-rose-600 group relative transition-colors`}>
-                Our Products
+                Produktet Tona
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
               </Link>
               <Link
@@ -54,7 +54,7 @@ export default function Navbar() {
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
                 } hover:text-rose-600 group relative transition-colors`}>
-                Gallery
+                Galeria
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
               </Link>
               <Link
@@ -74,7 +74,7 @@ export default function Navbar() {
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
                 } hover:text-rose-600 group relative transition-colors`}>
-                About
+                Rreth Nesh
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
               </Link>
               <Link
@@ -84,7 +84,7 @@ export default function Navbar() {
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
                 } hover:text-rose-600 group relative transition-colors`}>
-                Contact
+                Kontakt
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
               </Link>
               <button className="flex items-center bg-gradient-to-r from-rose-700 to-rose-500 text-white px-6 py-2 rounded-full hover:from-rose-500 hover:to-rose-700 transition-all duration-300 shadow-lg hover:shadow-xl">
@@ -119,7 +119,7 @@ export default function Navbar() {
                   : "text-gray-900"
               } hover:text-rose-600`}
               onClick={() => setIsOpen(false)}>
-              Home
+              Kreu
             </Link>
             <Link
               to="/products"
@@ -129,7 +129,7 @@ export default function Navbar() {
                   : "text-gray-900"
               } hover:text-rose-600`}
               onClick={() => setIsOpen(false)}>
-              Our Products
+              Produktet Tona
             </Link>
             <Link
               to="/gallery"
@@ -139,7 +139,7 @@ export default function Navbar() {
                   : "text-gray-900"
               } hover:text-rose-600`}
               onClick={() => setIsOpen(false)}>
-              Gallery
+              Galeria
             </Link>
             <Link
               to="/bar-menu"
@@ -159,7 +159,7 @@ export default function Navbar() {
                   : "text-gray-900"
               } hover:text-rose-600`}
               onClick={() => setIsOpen(false)}>
-              About
+              Rreth Nesh
             </Link>
             <Link
               to="/contact"
@@ -169,7 +169,7 @@ export default function Navbar() {
                   : "text-gray-900"
               } hover:text-rose-600`}
               onClick={() => setIsOpen(false)}>
-              Contact
+              Kontakt
             </Link>
             <button className="flex items-center w-full bg-gradient-to-r from-rose-600 to-rose-500 text-white px-4 py-2 rounded-full hover:from-rose-700 hover:to-rose-600">
               <ShoppingBag className="h-4 w-4 mr-2" />

@@ -59,7 +59,7 @@ export default function Home() {
             <Link
               to="/products"
               className="w-fit bg-gradient-to-r from-rose-600 to-rose-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-rose-700 hover:to-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center">
-              Explore Our Products
+              Eksploroni Produktet tona
               <ChevronRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
@@ -115,7 +115,7 @@ export default function Home() {
                 Our Story
               </h2>
               <p className="text-gray-600 mb-6">
-                For over 25 years, Pasticeri Lika has been serving the people of
+                For over 25 years, Pastiçeri Lika has been serving the people of
                 Tirana with the finest baked goods. Our commitment to quality
                 ingredients and traditional recipes has made us a beloved
                 destination for those seeking authentic Albanian pastries and

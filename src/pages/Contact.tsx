@@ -19,7 +19,7 @@ export default function Contact() {
         </div>
         <div className="relative h-full max-w-7xl mx-auto px-4 flex items-center">
           <div className="text-white max-w-2xl">
-            <h1 className="text-5xl font-serif font-bold mb-6">Contact Us</h1>
+            <h1 className="text-5xl font-serif font-bold mb-6">Na kontaktoni</h1>
             <p className="text-xl">
               We'd love to hear from you. Send us a message and we'll respond as
               soon as possible.

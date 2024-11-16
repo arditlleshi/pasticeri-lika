@@ -14,7 +14,7 @@ export default function Footer() {
                 <Cake className="h-6 w-6 text-white" />
               </div>
               <span className="ml-2 text-xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
-                Pasticeri Lika
+                Pastiçeri Lika
               </span>
             </div>
             <p className="text-gray-300 mb-6">
@@ -45,28 +45,28 @@ export default function Footer() {
                 <Link
                   to="/"
                   className="text-gray-300 hover:text-rose-500 transition-colors">
-                  Home
+                  Kreu
                 </Link>
               </li>
               <li>
                 <Link
                   to="/products"
                   className="text-gray-300 hover:text-rose-500 transition-colors">
-                  Our Products
+                  Produktet Tona
                 </Link>
               </li>
               <li>
                 <Link
                   to="/gallery"
                   className="text-gray-300 hover:text-rose-500 transition-colors">
-                  Gallery
+                  Galeria
                 </Link>
               </li>
               <li>
                 <Link
                   to="/about"
                   className="text-gray-300 hover:text-rose-500 transition-colors">
-                  About Us
+                  Rreth Nesh
                 </Link>
               </li>
             </ul>
@@ -75,7 +75,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
-              Contact Us
+              Kontakt
             </h4>
             <ul className="space-y-4">
               <li className="flex items-center text-gray-300">
@@ -123,7 +123,7 @@ export default function Footer() {
         <div className=" pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Pasticeri Lika. All rights reserved.
+              © {new Date().getFullYear()} Pastiçeri Lika. All rights reserved.
             </p>
             {/* <div className="flex gap-6 text-sm">
               <a

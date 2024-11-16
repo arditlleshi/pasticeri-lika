@@ -10,7 +10,7 @@ const stats = [
 const locations = [
   {
     name: "Rruga e Durrësit",
-    description: "Our flagship store, where the Pasticeri Lika story began. This location features our main bakery and café, serving fresh pastries and coffee daily.",
+    description: "Our flagship store, where the Pastiçeri Lika story began. This location features our main bakery and café, serving fresh pastries and coffee daily.",
     image: "https://images.unsplash.com/photo-1564759298141-cef86f51d4d4?auto=format&fit=crop&q=80",
     mapUrl: "https://maps.google.com/?q=41.3275,19.8187", // Coordinates for Rruga e Durrësit
   },

@@ -20,12 +20,12 @@ function App() {
     <div className="min-h-screen bg-white">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/bar-menu" element={<BarMenu />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/pasticeri-lika" element={<Home />} />
+        <Route path="/pasticeri-lika/produktet-tona" element={<Products />} />
+        <Route path="/pasticeri-lika/galeria" element={<Gallery />} />
+        <Route path="/pasticeri-lika/rreth-nesh" element={<About />} />
+        <Route path="/pasticeri-lika/bar-menu" element={<BarMenu />} />
+        <Route path="/pasticeri-lika/kontakt" element={<Contact />} />
       </Routes>
       <Footer />
     </div>

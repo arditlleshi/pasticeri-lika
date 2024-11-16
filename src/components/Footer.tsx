@@ -5,11 +5,11 @@ export default function Footer() {
   return (
     <footer className="bg-footer-gradient text-white">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 py-16">
+      <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Section */}
           <div>
-            <div className="flex items-center mb-6">
+            <div className="md:-mt-1.5 flex items-center mb-6">
               <div className="bg-gradient-to-r from-rose-600 to-rose-500 p-2 rounded-lg">
                 <Cake className="h-6 w-6 text-white" />
               </div>
@@ -120,12 +120,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
+        <div className=" pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
               © {new Date().getFullYear()} Pasticeri Lika. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm">
+            {/* <div className="flex gap-6 text-sm">
               <a
                 href="#"
                 className="text-gray-400 hover:text-rose-400 transition-colors">
@@ -141,7 +141,7 @@ export default function Footer() {
                 className="text-gray-400 hover:text-rose-400 transition-colors">
                 Cookie Policy
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

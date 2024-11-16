@@ -82,19 +82,16 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ProductCard
               name="Classic Croissant"
-              price="350 LEK"
               category="Ëmbëlsira"
               image="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80"
             />
             <ProductCard
               name="Chocolate Cake"
-              price="2800 LEK"
               category="Torta"
               image="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80"
             />
             <ProductCard
               name="Sourdough Bread"
-              price="280 LEK"
               category="Buke"
               image="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80"
             />

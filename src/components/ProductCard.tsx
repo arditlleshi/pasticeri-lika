@@ -1,6 +1,6 @@
 interface ProductCardProps {
   name: string;
-  price: string;
+  price?: string;
   image: string;
   category: string;
 }

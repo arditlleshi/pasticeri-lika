@@ -23,7 +23,6 @@ export default function Navbar() {
 
   const handleLinkClick = (path: string) => {
     if (path === location.pathname) {
-      console.log('Hereeeeeeeeeeee');
       window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -36,7 +35,7 @@ export default function Navbar() {
     <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center" onClick={() => handleLinkClick("/")}>
+          <Link to="/pasticeri-lika" className="flex items-center" onClick={() => handleLinkClick("/pasticeri-lika")}>
             <img src={logo} alt="Pastiçeri Lika" className="h-12 w-52" />
             {/* Uncomment and customize if needed
             <div className="bg-gradient-to-r from-rose-600 to-rose-500 p-2 rounded-lg">

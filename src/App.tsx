@@ -21,11 +21,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/pasticeri-lika" element={<Home />} />
-        <Route path="/pasticeri-lika/produktet-tona" element={<Products />} />
-        <Route path="/pasticeri-lika/galeria" element={<Gallery />} />
-        <Route path="/pasticeri-lika/rreth-nesh" element={<About />} />
+        <Route path="/pasticeri-lika/our-products" element={<Products />} />
+        <Route path="/pasticeri-lika/gallery" element={<Gallery />} />
+        <Route path="/pasticeri-lika/about-us" element={<About />} />
         <Route path="/pasticeri-lika/bar-menu" element={<BarMenu />} />
-        <Route path="/pasticeri-lika/kontakt" element={<Contact />} />
+        <Route path="/pasticeri-lika/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </div>

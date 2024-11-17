@@ -14,11 +14,11 @@ export default function Navbar() {
 
   const navLinks = [
     { path: "/pasticeri-lika", label: "Kreu" },
-    { path: "/pasticeri-lika/produktet-tona", label: "Produktet Tona" },
-    { path: "/pasticeri-lika/galeria", label: "Galeria" },
+    { path: "/pasticeri-lika/our-products", label: "Produktet Tona" },
+    { path: "/pasticeri-lika/gallery", label: "Galeria" },
     { path: "/pasticeri-lika/bar-menu", label: "Bar Menu" },
-    { path: "/pasticeri-lika/rreth-nesh", label: "Rreth Nesh" },
-    { path: "/pasticeri-lika/kontakt", label: "Kontakt" },
+    { path: "/pasticeri-lika/about-us", label: "Rreth Nesh" },
+    { path: "/pasticeri-lika/contact", label: "Kontakt" },
   ];
 
   const handleLinkClick = (path: string) => {
@@ -35,7 +35,10 @@ export default function Navbar() {
     <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link to="/pasticeri-lika" className="flex items-center" onClick={() => handleLinkClick("/pasticeri-lika")}>
+          <Link
+            to="/pasticeri-lika"
+            className="flex items-center"
+            onClick={() => handleLinkClick("/pasticeri-lika")}>
             <img src={logo} alt="Pastiçeri Lika" className="h-12 w-52" />
             {/* Uncomment and customize if needed
             <div className="bg-gradient-to-r from-rose-600 to-rose-500 p-2 rounded-lg">
@@ -72,7 +75,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Navigation Toggle */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-900">

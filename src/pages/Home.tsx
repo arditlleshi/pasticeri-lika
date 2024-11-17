@@ -57,7 +57,7 @@ export default function Home() {
               Crafting moments of joy with our freshly baked goods since 1995
             </p>
             <Link
-              to="/pasticeri-lika/produktet-tona"
+              to="/pasticeri-lika/our-products"
               className="w-fit bg-gradient-to-r from-rose-600 to-rose-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-rose-700 hover:to-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center">
               Eksploroni Produktet Tona
               <ChevronRight className="ml-2 h-5 w-5" />

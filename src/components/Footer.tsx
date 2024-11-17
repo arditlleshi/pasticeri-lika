@@ -43,28 +43,28 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <Link
-                  to="/"
+                  to="/pasticeri-lika"
                   className="text-gray-300 hover:text-rose-500 transition-colors">
                   Kreu
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/products"
+                  to="/pasticeri-lika/our-products"
                   className="text-gray-300 hover:text-rose-500 transition-colors">
                   Produktet Tona
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/gallery"
+                  to="/pasticeri-lika/gallery"
                   className="text-gray-300 hover:text-rose-500 transition-colors">
                   Galeria
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/about"
+                  to="/pasticeri-lika/about-us"
                   className="text-gray-300 hover:text-rose-500 transition-colors">
                   Rreth Nesh
                 </Link>

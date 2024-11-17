@@ -264,12 +264,12 @@ const products = [
     price: "3500 LEK",
     category: "Cakes",
     subcategory: "French",
-    description: "Layered almond sponge cake with coffee buttercream and chocolate ganache",
+    description:
+      "Layered almond sponge cake with coffee buttercream and chocolate ganache",
     image:
       "https://plus.unsplash.com/premium_photo-1679047583484-d53908b7c7b3?w=500&auto=format&fit=crop&q=60",
   },
 ];
-
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -334,7 +334,8 @@ export default function Products() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="appearance-none bg-white border rounded-full px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-rose-500">
+                  className="appearance-none bg-white border rounded-full px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-rose-500"
+                >
                   <option value="featured">Featured</option>
                   <option value="price-asc">Price: Low to High</option>
                   <option value="price-desc">Price: High to Low</option>
@@ -352,7 +353,8 @@ export default function Products() {
                     selectedCategory === category
                       ? "bg-rose-600 text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}>
+                  }`}
+                >
                   {category}
                 </button>
               ))}
@@ -370,7 +372,8 @@ export default function Products() {
                     selectedSubcategory === subcategory
                       ? "bg-rose-200 text-rose-800"
                       : "bg-rose-50 text-rose-600 hover:bg-rose-100"
-                  }`}>
+                  }`}
+                >
                   {subcategory}
                 </button>
               ))}

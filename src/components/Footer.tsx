@@ -24,12 +24,14 @@ export default function Footer() {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-gray-400 hover:text-rose-500 transition-colors">
+                className="text-gray-400 hover:text-rose-500 transition-colors"
+              >
                 <Instagram className="h-6 w-6" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-rose-500 transition-colors">
+                className="text-gray-400 hover:text-rose-500 transition-colors"
+              >
                 <Facebook className="h-6 w-6" />
               </a>
             </div>
@@ -44,28 +46,32 @@ export default function Footer() {
               <li>
                 <Link
                   to="/pasticeri-lika"
-                  className="text-gray-300 hover:text-rose-500 transition-colors">
+                  className="text-gray-300 hover:text-rose-500 transition-colors"
+                >
                   Kreu
                 </Link>
               </li>
               <li>
                 <Link
                   to="/pasticeri-lika/our-products"
-                  className="text-gray-300 hover:text-rose-500 transition-colors">
+                  className="text-gray-300 hover:text-rose-500 transition-colors"
+                >
                   Produktet Tona
                 </Link>
               </li>
               <li>
                 <Link
                   to="/pasticeri-lika/gallery"
-                  className="text-gray-300 hover:text-rose-500 transition-colors">
+                  className="text-gray-300 hover:text-rose-500 transition-colors"
+                >
                   Galeria
                 </Link>
               </li>
               <li>
                 <Link
                   to="/pasticeri-lika/about-us"
-                  className="text-gray-300 hover:text-rose-500 transition-colors">
+                  className="text-gray-300 hover:text-rose-500 transition-colors"
+                >
                   Rreth Nesh
                 </Link>
               </li>

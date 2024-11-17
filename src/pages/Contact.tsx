@@ -19,7 +19,9 @@ export default function Contact() {
         </div>
         <div className="relative h-full max-w-7xl mx-auto px-4 flex items-center">
           <div className="text-white max-w-2xl">
-            <h1 className="text-5xl font-serif font-bold mb-6">Na kontaktoni</h1>
+            <h1 className="text-5xl font-serif font-bold mb-6">
+              Na kontaktoni
+            </h1>
             <p className="text-xl">
               We'd love to hear from you. Send us a message and we'll respond as
               soon as possible.
@@ -55,7 +57,8 @@ export default function Contact() {
                     </h3>
                     <a
                       href="mailto:info@pasticerilika.al"
-                      className="text-gray-600 hover:text-rose-600">
+                      className="text-gray-600 hover:text-rose-600"
+                    >
                       info@pasticerilika.al
                     </a>
                   </div>
@@ -104,7 +107,8 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="fullName"
-                      className="block text-sm font-medium text-gray-700 mb-1">
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Full Name
                     </label>
                     <input
@@ -119,7 +123,8 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-1">
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Email Address
                     </label>
                     <input
@@ -134,7 +139,8 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="phone"
-                      className="block text-sm font-medium text-gray-700 mb-1">
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Phone Number
                     </label>
                     <input
@@ -148,7 +154,8 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-1">
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Message
                     </label>
                     <textarea
@@ -162,7 +169,8 @@ export default function Contact() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-rose-600 to-rose-500 text-white px-6 py-2 rounded-lg hover:from-rose-700 hover:to-rose-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
+                    className="w-full bg-gradient-to-r from-rose-600 to-rose-500 text-white px-6 py-2 rounded-lg hover:from-rose-700 hover:to-rose-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                  >
                     Send Message
                     <Send className="h-5 w-5" />
                   </button>

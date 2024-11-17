@@ -2,7 +2,7 @@
 import { Cake, Menu, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from '../assets/main-logo.png';
+import logo from "../assets/main-logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +38,8 @@ export default function Navbar() {
           <Link
             to="/pasticeri-lika"
             className="flex items-center"
-            onClick={() => handleLinkClick("/pasticeri-lika")}>
+            onClick={() => handleLinkClick("/pasticeri-lika")}
+          >
             <img src={logo} alt="Pastiçeri Lika" className="h-12 w-52" />
             {/* Uncomment and customize if needed
             <div className="bg-gradient-to-r from-rose-600 to-rose-500 p-2 rounded-lg">
@@ -62,7 +63,8 @@ export default function Navbar() {
                     isActive(path)
                       ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                       : "text-gray-900"
-                  } hover:text-rose-600 group relative transition-colors`}>
+                  } hover:text-rose-600 group relative transition-colors`}
+                >
                   {label}
                   <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
                 </Link>
@@ -78,7 +80,8 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-900">
+              className="text-gray-900"
+            >
               {isOpen ? (
                 <X className="h-6 w-6" />
               ) : (
@@ -102,7 +105,8 @@ export default function Navbar() {
                   isActive(path)
                     ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
                     : "text-gray-900"
-                } hover:text-rose-600`}>
+                } hover:text-rose-600`}
+              >
                 {label}
               </Link>
             ))}

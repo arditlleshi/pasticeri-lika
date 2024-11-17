@@ -52,7 +52,7 @@ export default function Products() {
     .filter(
       (product) =>
         (selectedCategory === "All" || product.category === selectedCategory) &&
-        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()),
     )
     .sort((a, b) => {
       if (sortBy === "price-asc") return parseInt(a.price) - parseInt(b.price);
@@ -95,7 +95,8 @@ export default function Products() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="appearance-none bg-white border rounded-full px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-rose-500">
+                  className="appearance-none bg-white border rounded-full px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-rose-500"
+                >
                   <option value="featured">Featured</option>
                   <option value="price-asc">Price: Low to High</option>
                   <option value="price-desc">Price: High to Low</option>
@@ -113,7 +114,8 @@ export default function Products() {
                     selectedCategory === category
                       ? "bg-rose-600 text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}>
+                  }`}
+                >
                   {category}
                 </button>
               ))}

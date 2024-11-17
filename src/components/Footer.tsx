@@ -1,7 +1,8 @@
 import { Cake, Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Footer() {
+  const location = useLocation();
   return (
     <footer className="bg-footer-gradient text-white">
       {/* Main Footer */}
@@ -46,7 +47,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/pasticeri-lika"
-                  className="text-gray-300 hover:text-rose-500 transition-colors"
+                  className={` hover:text-rose-500 transition-colors ${location.pathname == "/pasticeri-lika" ? "text-rose-500" : "text-gray-300"}`}
                 >
                   Kreu
                 </Link>
@@ -54,7 +55,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/pasticeri-lika/our-products"
-                  className="text-gray-300 hover:text-rose-500 transition-colors"
+                  className={` hover:text-rose-500 transition-colors ${location.pathname == "/pasticeri-lika/our-products" ? "text-rose-500" : "text-gray-300"}`}
                 >
                   Produktet Tona
                 </Link>
@@ -62,7 +63,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/pasticeri-lika/gallery"
-                  className="text-gray-300 hover:text-rose-500 transition-colors"
+                  className={` hover:text-rose-500 transition-colors ${location.pathname == "/pasticeri-lika/gallery" ? "text-rose-500" : "text-gray-300"}`}
                 >
                   Galeria
                 </Link>
@@ -70,7 +71,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/pasticeri-lika/about-us"
-                  className="text-gray-300 hover:text-rose-500 transition-colors"
+                  className={` hover:text-rose-500 transition-colors ${location.pathname == "/pasticeri-lika/about-us" ? "text-rose-500" : "text-gray-300"}`}
                 >
                   Rreth Nesh
                 </Link>

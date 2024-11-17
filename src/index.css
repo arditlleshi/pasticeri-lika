@@ -28,3 +28,14 @@
     display: none;
   }
 }
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  height: 7px;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e5e7eb;
+  border-radius: 10px;
+}

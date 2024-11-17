@@ -1,14 +1,11 @@
 import { ChevronDown, Search } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const categories = [
   "All",
-  "Breads",
   "Pastries",
   "Cakes",
-  "Cookies",
   "Traditional",
-  "Seasonal",
 ];
 
 const products = [
@@ -40,13 +37,28 @@ const products = [
       "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&q=80",
     bestseller: true,
   },
-  // Add more products as needed
 ];
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("featured");
+  const productsGridRef = useRef<HTMLDivElement>(null);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    // Smooth scroll to products grid with offset for the sticky header
+    if (productsGridRef.current) {
+      const yOffset = -120; // Adjust this value based on your header height
+      const element = productsGridRef.current;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: 220,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const filteredProducts = products
     .filter(
@@ -64,7 +76,7 @@ export default function Products() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <div className="bg-rose-50">
+      <div className="bg-gradient-to-r from-rose-50 to-white">
         <div className="max-w-7xl mx-auto px-4 py-10">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
             Produktet Tona
@@ -109,10 +121,10 @@ export default function Products() {
               {categories.map((category) => (
                 <button
                   key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-1 rounded-full whitespace-nowrap transition-colors ${
+                  onClick={() => handleCategoryChange(category)}
+                  className={`px-4 py-1 rounded-full whitespace-nowrap transition-all duration-300 ${
                     selectedCategory === category
-                      ? "bg-rose-600 text-white"
+                      ? "bg-rose-600 text-white shadow-lg"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
@@ -125,11 +137,14 @@ export default function Products() {
       </div>
 
       {/* Products Grid */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div ref={productsGridRef} className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => (
-            <div key={product.id} className="group">
-              <div className="relative aspect-square overflow-hidden rounded-2xl max-h-96">
+            <div
+              key={product.id}
+              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="relative aspect-square overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -141,19 +156,14 @@ export default function Products() {
                   </div>
                 )}
               </div>
-              <div className="mt-4">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {product.name}
-                    </h3>
-                    <p className="text-sm text-rose-600">{product.category}</p>
-                  </div>
-                  <span className="text-lg font-medium text-gray-900">
-                    {product.price}
-                  </span>
+              <div className="p-4">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    {product.name}
+                  </h3>
+                  <p className="text-sm text-rose-600 mb-2">{product.category}</p>
+                  <p className="text-gray-600 text-sm">{product.description}</p>
                 </div>
-                <p className="mt-2 text-gray-600">{product.description}</p>
               </div>
             </div>
           ))}

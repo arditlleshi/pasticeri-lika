@@ -99,7 +99,7 @@ export default function About() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://images.unsplash.com/photo-1579494376631-9363b9a0709e?auto=format&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-1534432182912-63863115e106?w=500&auto=format&fit=crop&q=80"
                 alt="Old Bakery"
                 className="rounded-xl"
               />

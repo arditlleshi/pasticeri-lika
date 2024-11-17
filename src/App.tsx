@@ -25,7 +25,7 @@ function App() {
         <Route path="/pasticeri-lika/gallery" element={<Gallery />} />
         <Route path="/pasticeri-lika/about-us" element={<About />} />
         <Route path="/pasticeri-lika/bar-menu" element={<BarMenu />} />
-        <Route path="/pasticeri-lika/contact" element={<Contact />} />
+        <Route path="/pasticeri-lika/contact-us" element={<Contact />} />
       </Routes>
       <Footer />
     </div>

@@ -76,6 +76,14 @@ export default function Footer() {
                   Rreth Nesh
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/pasticeri-lika/contact-us"
+                  className={` hover:text-rose-500 transition-colors ${location.pathname == "/pasticeri-lika/contact-us" ? "text-rose-500" : "text-gray-300"}`}
+                >
+                  Kontakt
+                </Link>
+              </li>
             </ul>
           </div>
 

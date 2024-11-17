@@ -18,7 +18,7 @@ export default function Navbar() {
     { path: "/pasticeri-lika/gallery", label: "Galeria" },
     { path: "/pasticeri-lika/bar-menu", label: "Bar Menu" },
     { path: "/pasticeri-lika/about-us", label: "Rreth Nesh" },
-    { path: "/pasticeri-lika/contact", label: "Kontakt" },
+    { path: "/pasticeri-lika/contact-us", label: "Kontakt" },
   ];
 
   const handleLinkClick = (path: string) => {

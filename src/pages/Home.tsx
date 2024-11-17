@@ -1,4 +1,4 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Clock, Star, Truck } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
@@ -54,18 +54,61 @@ const categoryShowcase = [
   }
 ];
 
+const baklavaPictures = [
+  {
+    url: "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&q=80",
+    alt: "Traditional Baklava",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1598110750624-207050c4f28c?w=500&auto=format&fit=crop&q=80",
+    alt: "Pistachio Baklava",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1617806501553-d3a6a3a7b227?w=500&auto=format&fit=crop&q=80",
+    alt: "Honey Baklava",
+  },
+];
+
+const features = [
+  {
+    icon: Clock,
+    title: "Same Day Delivery",
+    description: "Order before 2 PM for same-day delivery",
+  },
+  {
+    icon: Truck,
+    title: "Free Delivery",
+    description: "Free delivery for orders over 2500 LEK",
+  },
+  {
+    icon: Star,
+    title: "Premium Quality",
+    description: "Made fresh daily with premium ingredients",
+  },
+];
+
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentBaklavaIndex, setCurrentBaklavaIndex] = useState(0);
   const [activeCategory, setActiveCategory] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const heroInterval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1,
       );
     }, 5000);
 
-    return () => clearInterval(interval);
+    const baklavaInterval = setInterval(() => {
+      setCurrentBaklavaIndex((prevIndex) =>
+        prevIndex === baklavaPictures.length - 1 ? 0 : prevIndex + 1,
+      );
+    }, 5000);
+
+    return () => {
+      clearInterval(heroInterval);
+      clearInterval(baklavaInterval);
+    };
   }, []);
 
   return (
@@ -104,6 +147,109 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Baklava Showcase Section */}
+      <section className="py-24 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
+          <svg
+            className="absolute inset-0 w-full h-full"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            <pattern
+              id="pattern-hex"
+              x="0"
+              y="0"
+              width="16"
+              height="28"
+              patternUnits="userSpaceOnUse"
+              viewBox="0 0 16 28"
+            >
+              <path
+                d="M8 0l8 14-8 14-8-14L8 0z"
+                fill="currentColor"
+                fillOpacity="0.1"
+              />
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#pattern-hex)" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="inline-block">
+                <span className="bg-rose-600 bg-opacity-10 text-rose-500 px-4 py-2 rounded-full text-sm font-medium">
+                  Special Delivery Offer
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-white">
+                Experience Our Famous
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-600">
+                  {" "}
+                  Baklava
+                </span>
+              </h2>
+              <p className="text-gray-300 text-lg">
+                Indulge in our signature baklava, handcrafted daily using
+                premium nuts, delicate phyllo, and pure honey. Now available for
+                home delivery across Tirana.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {features.map((feature) => (
+                  <div
+                    key={feature.title}
+                    className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
+                  >
+                    <feature.icon className="h-6 w-6 text-rose-500 mb-4" />
+                    <h3 className="text-white font-semibold mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm">
+                      {feature.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  to="/pasticeri-lika/our-products"
+                  className="inline-flex items-center justify-center bg-gradient-to-r from-rose-600 to-rose-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-rose-700 hover:to-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Order Now
+                  <ChevronRight className="ml-2 h-5 w-5" />
+                </Link>
+                <button className="inline-flex items-center justify-center px-8 py-3 rounded-full text-lg font-semibold border-2 border-white/20 text-white hover:bg-white/10 transition-all duration-300">
+                  Learn More
+                </button>
+              </div>
+            </div>
+
+            <div className="relative aspect-square">
+              <div className="absolute inset-0 bg-gradient-to-r from-rose-600/20 to-rose-500/20 rounded-3xl transform rotate-6" />
+              <div className="absolute inset-0 bg-gradient-to-r from-rose-600/20 to-rose-500/20 rounded-3xl transform -rotate-6" />
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl h-full">
+                {baklavaPictures.map((image, index) => (
+                  <img
+                    key={image.url}
+                    src={image.url}
+                    alt={image.alt}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                      index === currentBaklavaIndex
+                        ? "opacity-100"
+                        : "opacity-0"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Products Section */}
       <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4">
@@ -137,23 +283,24 @@ export default function Home() {
       </section>
 
       {/* Category Showcase Section */}
-      <section className="py-24 bg-white">
+      <section className="pb-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">
               Explore Our Categories
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Discover the artistry and tradition behind our diverse range of products
+              Discover the artistry and tradition behind our diverse range of
+              products
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 gap-24">
             {categoryShowcase.map((category, index) => (
-              <div 
+              <div
                 key={category.name}
                 className={`flex flex-col lg:flex-row gap-12 items-center ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                  index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
                 <div className="lg:w-1/2">
@@ -198,7 +345,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+      <section className="pb-24 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>

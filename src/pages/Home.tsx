@@ -195,11 +195,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="lg:w-1/2">
-              <div className="relative">
+            <div className="w-full lg:w-1/2">
+              <div className="relative w-full h-[300px] md:h-[400px]">
                 <div className="absolute inset-0 bg-gradient-to-r from-rose-600/20 to-rose-500/20 rounded-3xl transform rotate-6" />
                 <div className="absolute inset-0 bg-gradient-to-r from-rose-600/20 to-rose-500/20 rounded-3xl transform -rotate-6" />
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl h-full">
                   {baklavaPictures.map((image, index) => (
                     <img
                       key={image.url}

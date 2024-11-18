@@ -1,159 +1,97 @@
-import { Clock, Award, Users, Cake, MapPin } from "lucide-react";
+import { useRef, useState } from "react";
+import { menuBarCategories } from "../data/menu-bar-categories";
+import { menuBarItems } from "../data/menu-bar-items";
 
-const stats = [
-  { icon: Clock, label: "Years of Experience", value: "25+" },
-  { icon: Award, label: "Awards Won", value: "15+" },
-  { icon: Users, label: "Happy Customers", value: "50k+" },
-  { icon: Cake, label: "Products Made Daily", value: "100+" },
-];
+export default function BarMenu() {
+  const [selectedCategory, setSelectedCategory] = useState<keyof typeof menuBarItems>("coffee");
+  const currentCategory = menuBarCategories.find((cat) => cat.id === selectedCategory);
 
-const locations = [
-  {
-    name: "Rruga e Durrësit",
-    description:
-      "Our flagship store, where the Pastiçeri Lika story began. This location features our main bakery and café, serving fresh pastries and coffee daily.",
-    image:
-      "https://images.unsplash.com/photo-1564759298141-cef86f51d4d4?auto=format&fit=crop&q=80",
-    mapUrl: "https://maps.google.com/?q=41.3275,19.8187", // Coordinates for Rruga e Durrësit
-  },
-  {
-    name: "Pallatet Çabej",
-    description:
-      "Located in Tirana's trendiest neighborhood, this modern location combines traditional favorites with contemporary café culture.",
-    image:
-      "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80",
-    mapUrl: "https://maps.google.com/?q=41.3186,19.8145", // Coordinates for Pallatet Çabej
-  },
-  {
-    name: "Rruga Xhanfize Keko",
-    description:
-      "Our newest location in the historic New Bazaar area, featuring an open kitchen where you can watch our bakers at work.",
-    image:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80",
-    mapUrl: "https://maps.google.com/?q=41.3297,19.8235", // Coordinates for Rruga Xhanfize Keko
-  },
-];
+  const menuItemsRef = useRef<HTMLDivElement>(null);
 
-export default function About() {
+  const handleCategoryClick = (categoryId: keyof typeof menuBarItems) => {
+    setSelectedCategory(categoryId);
+
+    if (menuItemsRef.current) {
+      const headerOffset = 150;
+      const elementPosition = menuItemsRef.current.getBoundingClientRect().top;
+      const offsetPosition = window.pageYOffset + elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative h-[60vh]">
+    <div className="pt-20 min-h-screen bg-gray-50">
+      {/* Dynamic Hero Section */}
+      <div className="relative h-[40vh]">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80"
-            alt="Bakery Interior"
-            className="w-full h-full object-cover"
+            src={currentCategory?.image}
+            loading="lazy"
+            alt={currentCategory?.name}
+            className="w-full h-full object-cover transition-opacity duration-500"
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
-        <div className="relative h-full max-w-7xl mx-auto px-4 flex items-center">
-          <div className="text-white max-w-2xl">
-            <h1 className="text-5xl font-serif font-bold mb-6">Our Story</h1>
-            <p className="text-xl">
-              A family tradition of baking excellence since 1995, bringing joy
-              to the hearts of Tirana one pastry at a time.
-            </p>
-          </div>
+        <div className="relative h-full max-w-7xl mx-auto px-4 flex flex-col justify-center">
+          <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
+            {currentCategory?.name}
+          </h1>
+          <p className="text-lg text-gray-200 max-w-2xl">
+            {currentCategory?.description}
+          </p>
         </div>
-      </section>
+      </div>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-rose-50">
+      {/* Category Navigation */}
+      <div className="sticky top-20 bg-white shadow-sm z-40">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <stat.icon className="h-8 w-8 text-rose-600 mx-auto mb-4" />
-                <div className="text-3xl font-bold text-gray-900 mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* History Section */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl font-serif font-bold text-gray-900 mb-6">
-                A Legacy of Excellence
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Founded in 1995 by the Lika family, our bakery began as a small
-                shop with big dreams. Today, we're proud to be one of Tirana's
-                most beloved bakeries, known for our commitment to quality and
-                tradition.
-              </p>
-              <p className="text-gray-600 mb-6">
-                We combine time-honored Albanian baking traditions with modern
-                techniques to create pastries and breads that delight our
-                customers. Every recipe has been perfected over generations,
-                ensuring that each bite tells our story of passion and
-                dedication.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img
-                src="https://images.unsplash.com/photo-1534432182912-63863115e106?w=500&auto=format&fit=crop&q=80"
-                alt="Old Bakery"
-                className="rounded-xl"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&q=80"
-                alt="Modern Bakery"
-                className="rounded-xl mt-8"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Locations Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-serif font-bold text-gray-900 text-center mb-16">
-            Dyqanet tona
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {locations.map((location, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+          <div className="flex overflow-x-auto gap-2 py-4 hide-scrollbar">
+            {menuBarCategories.map(({ id, name, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => handleCategoryClick(id)}
+                className={`flex items-center gap-2 px-6 py-2 rounded-full whitespace-nowrap transition-colors ${
+                  selectedCategory === id
+                    ? "bg-rose-600 text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+                aria-pressed={selectedCategory === id}
               >
-                <div className="relative aspect-[4/3] group">
-                  <img
-                    src={location.image}
-                    alt={location.name}
-                    className="w-full h-full object-cover group-hover:opacity-30 transition-opacity duration-300"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <a
-                      href={location.mapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-rose-600 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-rose-700 transition-colors"
-                    >
-                      <MapPin className="h-5 w-5" />
-                      View on Map
-                    </a>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {location.name}
-                  </h3>
-                  <p className="text-gray-600">{location.description}</p>
-                </div>
-              </div>
+                <Icon className="h-4 w-4" />
+                {name}
+              </button>
             ))}
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Menu Items */}
+      <div ref={menuItemsRef} className="max-w-7xl mx-auto px-4 py-12">
+        <div className="grid gap-4">
+          {menuBarItems[selectedCategory].map((item, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02]"
+            >
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    {item.name}
+                  </h3>
+                  <p className="text-gray-600 mt-1">{item.description}</p>
+                </div>
+                <span className="text-lg font-medium text-rose-600">
+                  {item.price}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

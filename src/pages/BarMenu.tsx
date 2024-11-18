@@ -7,8 +7,16 @@ export default function BarMenu() {
   const currentCategory = menuBarCategories.find((cat) => cat.id === selectedCategory);
   const menuItemsRef = useRef<HTMLDivElement>(null);
 
-  const handleCategoryClick = (categoryId: keyof typeof menuBarItems) => {
+  // Ref for the category navigation container
+  const categoryNavRef = useRef<HTMLDivElement>(null);
+
+  // Array of refs for each category button
+  const categoryRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const handleCategoryClick = (categoryId: keyof typeof menuBarItems, index: number) => {
     setSelectedCategory(categoryId);
+
+    // Scroll to the menu items section
     if (menuItemsRef.current) {
       const headerOffset = 150;
       const elementPosition = menuItemsRef.current.getBoundingClientRect().top;
@@ -16,6 +24,16 @@ export default function BarMenu() {
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
+      });
+    }
+
+    // Center the clicked category button horizontally
+    const button = categoryRefs.current[index];
+    if (button && categoryNavRef.current) {
+      button.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest',
       });
     }
   };
@@ -47,13 +65,17 @@ export default function BarMenu() {
       </div>
 
       {/* Category Navigation */}
-      <div className="sticky top-20 bg-white/80 backdrop-blur-md shadow-sm z-40 border-b border-gray-200">
+      <div
+        ref={categoryNavRef}
+        className="sticky top-20 bg-white/80 backdrop-blur-md shadow-sm z-40 border-b border-gray-200"
+      >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex overflow-x-auto gap-3 py-4 hide-scrollbar">
-            {menuBarCategories.map(({ id, name, icon: Icon }) => (
+            {menuBarCategories.map(({ id, name, icon: Icon }, index) => (
               <button
                 key={id}
-                onClick={() => handleCategoryClick(id)}
+                ref={(el) => (categoryRefs.current[index] = el)}
+                onClick={() => handleCategoryClick(id, index)}
                 className={`group flex items-center gap-2 px-6 py-2.5 rounded-full whitespace-nowrap transition-all duration-300 ${
                   selectedCategory === id
                     ? "bg-gradient-to-r from-rose-600 to-rose-500 text-white shadow-lg shadow-rose-500/20"

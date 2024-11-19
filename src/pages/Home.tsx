@@ -156,7 +156,6 @@ export default function Home() {
       {/* Baklava Showcase Section */}
       <section className="py-24 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
-          {/* Changed from grid to flex */}
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="space-y-10 lg:w-1/2">
               <div className="inline-block">
@@ -196,7 +195,7 @@ export default function Home() {
             </div>
 
             <div className="w-full lg:w-1/2">
-              <div className="relative w-full h-[300px] md:h-[400px]">
+              <div className="relative w-full h-[400px] md:h-[500px]">
                 <div className="absolute inset-0 bg-gradient-to-r from-rose-600/20 to-rose-500/20 rounded-3xl transform rotate-6" />
                 <div className="absolute inset-0 bg-gradient-to-r from-rose-600/20 to-rose-500/20 rounded-3xl transform -rotate-6" />
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl h-full">
@@ -281,47 +280,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="pb-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <img
-                src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80"
-                alt="Our Story"
-                className="rounded-2xl shadow-xl"
-              />
-            </div>
-            <div>
-              <h2 className="text-4xl font-serif font-bold text-gray-900 mb-6">
-                Our Story
-              </h2>
-              <p className="text-gray-600 mb-6">
-                For over 25 years, Pastiçeri Lika has been serving the people of
-                Tirana with the finest baked goods. Our commitment to quality
-                ingredients and traditional recipes has made us a beloved
-                destination for those seeking authentic Albanian pastries and
-                international delicacies.
-              </p>
-              <div className="grid grid-cols-2 gap-8">
-                <div>
-                  <div className="font-semibold text-2xl text-gray-900 mb-2">
-                    {new Date().getFullYear() - 1995}
-                  </div>
-                  <p className="text-gray-600">Years of excellence</p>
-                </div>
-                <div>
-                  <div className="font-semibold text-2xl text-gray-900 mb-2">
-                    3
-                  </div>
-                  <p className="text-gray-600">Locations in Tirana</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
-import Gallery from "./components/Gallery";
+import Gallery from "./pages/Gallery";
 import About from "./pages/About";
 import BarMenu from "./pages/BarMenu";
 import Contact from "./pages/Contact";

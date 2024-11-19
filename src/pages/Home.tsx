@@ -139,7 +139,7 @@ export default function Home() {
               pjekura që nga viti 1995
             </p>
             <Link
-              to="/pasticeri-lika/our-products"
+              to="/pasticeri-lika/gallery"
               className="flex w-fit items-center rounded-full bg-gradient-to-r from-rose-600 to-rose-500 px-8 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:from-rose-700 hover:to-rose-600 hover:shadow-xl"
             >
               Eksploroni Produktet Tona
@@ -264,7 +264,9 @@ export default function Home() {
                     ))}
                   </div>
                   <Link
-                    to="/pasticeri-lika/our-products"
+                    to={`/pasticeri-lika/gallery?category=${encodeURIComponent(
+                      category.name
+                    )}`}
                     className="inline-flex items-center text-rose-600 transition-colors hover:text-rose-700"
                   >
                     Shikoni të Gjitha Produktet{" "}

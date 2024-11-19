@@ -2,7 +2,7 @@
 import { Cake, Menu, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/main-logo.png";
+import logo from "../assets/logo/red-logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,9 +32,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <nav className="fixed z-50 w-full bg-white/80 shadow-lg backdrop-blur-md">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
           <Link
             to="/pasticeri-lika"
             className="flex items-center"
@@ -61,23 +61,23 @@ export default function Navbar() {
                   onClick={() => handleLinkClick(path)}
                   className={`${
                     isActive(path)
-                      ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
+                      ? "bg-gradient-to-r from-rose-600 to-rose-500 bg-clip-text text-transparent"
                       : "text-gray-900"
-                  } hover:text-rose-600 group relative transition-colors`}
+                  } group relative transition-colors hover:text-rose-600`}
                 >
                   {label}
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-rose-600 to-rose-500 group-hover:w-full transition-all duration-300 ease-out"></div>
+                  <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-rose-600 to-rose-500 transition-all duration-300 ease-out group-hover:w-full"></div>
                 </Link>
               ))}
-              <button className="flex items-center bg-gradient-to-r from-rose-700 to-rose-500 text-white px-6 py-2 rounded-full hover:from-rose-500 hover:to-rose-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+              {/* <button className="flex items-center bg-gradient-to-r from-rose-700 to-rose-500 text-white px-6 py-2 rounded-full hover:from-rose-500 hover:to-rose-700 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <ShoppingBag className="h-4 w-4 mr-2" />
                 Order Now
-              </button>
+              </button> */}
             </div>
           </div>
 
           {/* Mobile Navigation Toggle */}
-          <div className="md:hidden flex items-center">
+          <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-900"
@@ -95,7 +95,7 @@ export default function Navbar() {
       {/* Mobile Navigation Menu */}
       {isOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/90 backdrop-blur-md">
+          <div className="space-y-1 bg-white/90 px-2 pb-3 pt-2 backdrop-blur-md sm:px-3">
             {navLinks.map(({ path, label }) => (
               <Link
                 key={path}
@@ -103,15 +103,15 @@ export default function Navbar() {
                 onClick={() => handleLinkClick(path)}
                 className={`block px-3 py-2 ${
                   isActive(path)
-                    ? "text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500"
+                    ? "bg-gradient-to-r from-rose-600 to-rose-500 bg-clip-text text-transparent"
                     : "text-gray-900"
                 } hover:text-rose-600`}
               >
                 {label}
               </Link>
             ))}
-            <button className="flex items-center w-full bg-gradient-to-r from-rose-600 to-rose-500 text-white px-4 py-2 rounded-full hover:from-rose-700 hover:to-rose-600">
-              <ShoppingBag className="h-4 w-4 mr-2" />
+            <button className="flex w-full items-center rounded-full bg-gradient-to-r from-rose-600 to-rose-500 px-4 py-2 text-white hover:from-rose-700 hover:to-rose-600">
+              <ShoppingBag className="mr-2 h-4 w-4" />
               Order Now
             </button>
           </div>

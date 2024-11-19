@@ -1,10 +1,12 @@
 import { Clock, Award, Users, Cake, MapPin } from "lucide-react";
 
+const years = new Date().getFullYear() - 1995;
+
 const stats = [
-  { icon: Clock, label: "Years of Experience", value: "25+" },
+  { icon: Clock, label: "Years of Experience", value: years + "+" },
   { icon: Award, label: "Awards Won", value: "15+" },
-  { icon: Users, label: "Happy Customers", value: "50k+" },
-  { icon: Cake, label: "Products Made Daily", value: "100+" },
+  { icon: Users, label: "Happy Customers", value: "100k+" },
+  { icon: Cake, label: "Products Made Daily", value: "1000+" },
 ];
 
 const locations = [
@@ -66,33 +68,36 @@ export default function About() {
           <img
             src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80"
             alt="Bakery Interior"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
         </div>
-        <div className="relative h-full max-w-7xl mx-auto px-4 flex items-center">
-          <div className="text-white max-w-2xl">
-            <span className="inline-block mb-4 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-sm font-medium">
+        <div className="relative mx-auto flex h-full max-w-7xl items-center px-4">
+          <div className="max-w-2xl text-white">
+            <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur-md">
               Est. 1995
             </span>
-            <h1 className="text-5xl font-serif font-bold mb-6">Our Story</h1>
+            <h1 className="mb-6 font-serif text-5xl font-bold">Our Story</h1>
             <p className="text-xl">
-              A family tradition of baking excellence, bringing joy to the hearts
-              of Tirana one pastry at a time.
+              A family tradition of baking excellence, bringing joy to the
+              hearts of Tirana one pastry at a time.
             </p>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-rose-50 to-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="bg-gradient-to-r from-rose-50 to-white py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center transform hover:scale-105 transition-transform duration-300">
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  <stat.icon className="h-8 w-8 text-rose-600 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-gray-900 mb-2">
+              <div
+                key={index}
+                className="transform text-center transition-transform duration-300 hover:scale-105"
+              >
+                <div className="rounded-2xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl">
+                  <stat.icon className="mx-auto mb-4 h-8 w-8 text-rose-600" />
+                  <div className="mb-2 text-3xl font-bold text-gray-900">
                     {stat.value}
                   </div>
                   <div className="text-gray-600">{stat.label}</div>
@@ -104,13 +109,13 @@ export default function About() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-serif font-bold text-gray-900 text-center mb-16">
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="mb-16 text-center font-serif text-4xl font-bold text-gray-900">
             Our Journey
           </h2>
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-rose-600 to-rose-300" />
+            <div className="absolute left-1/2 h-full w-1 -translate-x-1/2 transform bg-gradient-to-b from-rose-600 to-rose-300" />
             <div className="space-y-24">
               {timeline.map((item, index) => (
                 <div
@@ -128,14 +133,14 @@ export default function About() {
                       <span className="text-4xl font-bold text-rose-600">
                         {item.year}
                       </span>
-                      <h3 className="text-xl font-semibold text-gray-900 mt-2">
+                      <h3 className="mt-2 text-xl font-semibold text-gray-900">
                         {item.title}
                       </h3>
-                      <p className="text-gray-600 mt-2">{item.description}</p>
+                      <p className="mt-2 text-gray-600">{item.description}</p>
                     </div>
                   </div>
-                  <div className="relative flex items-center justify-center w-8">
-                    <div className="h-8 w-8 bg-rose-600 rounded-full border-4 border-white shadow-lg" />
+                  <div className="relative flex w-8 items-center justify-center">
+                    <div className="h-8 w-8 rounded-full border-4 border-white bg-rose-600 shadow-lg" />
                   </div>
                   <div className="w-1/2 pl-8" />
                 </div>
@@ -146,20 +151,20 @@ export default function About() {
       </section>
 
       {/* Legacy Section */}
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="bg-gradient-to-b from-white to-gray-50 py-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
             <div>
-              <h2 className="text-4xl font-serif font-bold text-gray-900 mb-6">
+              <h2 className="mb-6 font-serif text-4xl font-bold text-gray-900">
                 A Legacy of Excellence
               </h2>
-              <p className="text-gray-600 mb-6">
+              <p className="mb-6 text-gray-600">
                 Founded in 1995 by the Lika family, our bakery began as a small
-                shop with big dreams. Today, we're proud to be one of Tirana's
+                shop with big dreams. Today, we're proud to be one of Albania's
                 most beloved bakeries, known for our commitment to quality and
                 tradition.
               </p>
-              <p className="text-gray-600 mb-6">
+              <p className="mb-6 text-gray-600">
                 We combine time-honored Albanian baking traditions with modern
                 techniques to create pastries and breads that delight our
                 customers. Every recipe has been perfected over generations,
@@ -171,12 +176,12 @@ export default function About() {
               <img
                 src="https://images.unsplash.com/photo-1534432182912-63863115e106?w=500&auto=format&fit=crop&q=80"
                 alt="Old Bakery"
-                className="rounded-xl transform hover:scale-105 transition-transform duration-300"
+                className="transform rounded-xl transition-transform duration-300 hover:scale-105"
               />
               <img
                 src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&q=80"
                 alt="Modern Bakery"
-                className="rounded-xl mt-8 transform hover:scale-105 transition-transform duration-300"
+                className="mt-8 transform rounded-xl transition-transform duration-300 hover:scale-105"
               />
             </div>
           </div>
@@ -184,29 +189,29 @@ export default function About() {
       </section>
 
       {/* Locations Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-serif font-bold text-gray-900 text-center mb-16">
+      <section className="bg-gray-50 py-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="mb-16 text-center font-serif text-4xl font-bold text-gray-900">
             Dyqanet tona
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
             {locations.map((location, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-1 duration-300"
+                className="overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl"
               >
-                <div className="relative aspect-[4/3] group">
+                <div className="group relative aspect-[4/3]">
                   <img
                     src={location.image}
                     alt={location.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <a
                       href={location.mapUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-white text-gray-900 px-6 py-3 rounded-full flex items-center gap-2 hover:bg-rose-600 hover:text-white transition-colors transform hover:scale-105"
+                      className="flex transform items-center gap-2 rounded-full bg-white px-6 py-3 text-gray-900 transition-colors hover:scale-105 hover:bg-rose-600 hover:text-white"
                     >
                       <MapPin className="h-5 w-5" />
                       View on Map
@@ -214,7 +219,7 @@ export default function About() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="mb-3 text-xl font-semibold text-gray-900">
                     {location.name}
                   </h3>
                   <p className="text-gray-600">{location.description}</p>

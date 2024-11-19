@@ -59,7 +59,8 @@ export default function Products() {
             Galeria jonë
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl">
-            Explore our gallery of delicious treats and masterful creations
+            Eksploroni galerinë tonë të produkteve të shijshme dhe të krijesave
+            të mësojshme
           </p>
         </div>
       </div>

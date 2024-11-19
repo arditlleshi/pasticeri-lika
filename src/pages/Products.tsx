@@ -2,37 +2,37 @@ import { Search } from "lucide-react";
 import { useRef, useState } from "react";
 
 const categories = [
-  "All",
-  "Pastries",
-  "Cakes",
-  "Traditional",
+  "Të Gjitha",
+  "Pastritë",
+  "Tortat",
+  "Tradicionale",
 ];
 
 const products = [
   {
     id: 2,
-    name: "Chocolate Éclair",
+    name: "Éclair me Çokollatë",
     price: "280 LEK",
-    category: "Pastries",
-    description: "Classic French pastry filled with chocolate cream",
+    category: "Pastritë",
+    description: "Pastriti klasik francez i mbushur me krem çokollate",
     image:
       "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&q=80",
   },
   {
     id: 3,
-    name: "Wedding Cake",
+    name: "Torta e Dasmës",
     price: "25000 LEK",
-    category: "Cakes",
-    description: "Custom-designed wedding cakes with your choice of flavors",
+    category: "Tortat",
+    description: "Torta dasme të dizajnuara sipas preferencave tuaja",
     image:
       "https://images.unsplash.com/photo-1678473289821-1818e3f82e9a?w=500&auto=format&fit=crop&q=120",
   },
   {
     id: 4,
-    name: "Traditional Baklava",
+    name: "Baklava Tradicionale",
     price: "180 LEK",
-    category: "Traditional",
-    description: "Handmade baklava with walnuts and honey syrup",
+    category: "Tradicionale",
+    description: "Baklava e bërë me dorë me arra dhe sirup mjaltë",
     image:
       "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&q=80",
     bestseller: true,
@@ -40,7 +40,7 @@ const products = [
 ];
 
 export default function Products() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("Të Gjitha");
   const [searchQuery, setSearchQuery] = useState("");
   const productsGridRef = useRef<HTMLDivElement>(null);
 
@@ -61,7 +61,7 @@ export default function Products() {
 
   const filteredProducts = products.filter(
     (product) =>
-      (selectedCategory === "All" || product.category === selectedCategory) &&
+      (selectedCategory === "Të Gjitha" || product.category === selectedCategory) &&
       product.name.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
@@ -74,8 +74,7 @@ export default function Products() {
             Produktet Tona
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl">
-            Discover our wide range of freshly baked goods, from traditional
-            Albanian pastries to international favorites.
+            Zbuloni gamën tonë të gjerë të produkteve të pjekura të freskëta, nga pastërtitë tradicionale shqiptare deri te preferencat ndërkombëtare.
           </p>
         </div>
       </div>
@@ -89,7 +88,7 @@ export default function Products() {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                 <input
                   type="text"
-                  placeholder="Search products..."
+                  placeholder="Kërkoni produktet..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-rose-500"
@@ -132,7 +131,7 @@ export default function Products() {
                 />
                 {product.bestseller && (
                   <div className="absolute top-4 left-4 bg-rose-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Bestseller
+                    Popullor
                   </div>
                 )}
               </div>
@@ -143,6 +142,9 @@ export default function Products() {
                   </h3>
                   <p className="text-sm text-rose-600 mb-2">{product.category}</p>
                   <p className="text-gray-600 text-sm">{product.description}</p>
+                </div>
+                <div className="mt-2">
+                  <span className="text-lg font-medium text-rose-600">{product.price}</span>
                 </div>
               </div>
             </div>

@@ -3,17 +3,17 @@ import { Clock, Award, Users, Cake, MapPin } from "lucide-react";
 const years = new Date().getFullYear() - 1995;
 
 const stats = [
-  { icon: Clock, label: "Years of Experience", value: years + "+" },
-  { icon: Award, label: "Awards Won", value: "15+" },
-  { icon: Users, label: "Happy Customers", value: "100k+" },
-  { icon: Cake, label: "Products Made Daily", value: "1000+" },
+  { icon: Clock, label: "Vjet Eksperiencë", value: years + "+" },
+  { icon: Award, label: "Çmime Fitore", value: "15+" },
+  { icon: Users, label: "Konsumatorë të Lumtur", value: "100k+" },
+  { icon: Cake, label: "Produkte të Bëra Çdo Ditë", value: "1000+" },
 ];
 
 const locations = [
   {
     name: "Rruga e Durrësit",
     description:
-      "Our flagship store, where the Pastiçeri Lika story began. This location features our main bakery and café, serving fresh pastries and coffee daily.",
+      "Dyqani ynë kryesor, ku filloi historia e Pastiçeri Lika. Ky vendndodhje përmban pjekurinë dhe kafenenë kryesore tonë, duke shërbyer pastërtia dhe kafe të freskëta çdo ditë.",
     image:
       "https://images.unsplash.com/photo-1564759298141-cef86f51d4d4?auto=format&fit=crop&q=80",
     mapUrl: "https://maps.google.com/?q=41.3275,19.8187",
@@ -21,7 +21,7 @@ const locations = [
   {
     name: "Pallatet Çabej",
     description:
-      "Located in Tirana's trendiest neighborhood, this modern location combines traditional favorites with contemporary café culture.",
+      "E vendosur në lagjen më të njohur të Tiranës, kjo vendndodhje moderne kombinon preferencat tradicionale me kulturën bashkëkohore të kafenesë.",
     image:
       "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80",
     mapUrl: "https://maps.google.com/?q=41.3186,19.8145",
@@ -29,7 +29,7 @@ const locations = [
   {
     name: "Rruga Xhanfize Keko",
     description:
-      "Our newest location in the historic New Bazaar area, featuring an open kitchen where you can watch our bakers at work.",
+      "Vendndodhja jonë më e re në zonën historike të New Bazaar, duke përfshirë një kuzhinë të hapur ku mund të shikoni pjekësit tanë në punë.",
     image:
       "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80",
     mapUrl: "https://maps.google.com/?q=41.3297,19.8235",
@@ -39,23 +39,23 @@ const locations = [
 const timeline = [
   {
     year: "1995",
-    title: "The Beginning",
-    description: "Founded as a small family bakery in Tirana",
+    title: "Fillimi",
+    description: "Themeluar si një pjekuri familjare e vogël në Tiranë",
   },
   {
     year: "2005",
-    title: "First Expansion",
-    description: "Opened our second location at Pallatet Çabej",
+    title: "Zgjerimi i Parë",
+    description: "Hapur vendndodhja jonë e dytë në Pallatet Çabej",
   },
   {
     year: "2015",
-    title: "Innovation",
-    description: "Introduced modern European pastries while maintaining traditional recipes",
+    title: "Inovacioni",
+    description: "Prezantuam pastërtitë moderne europiane duke mbajtur recetat tradicionale",
   },
   {
     year: "2020",
-    title: "New Chapter",
-    description: "Opened our third location with an open-concept kitchen",
+    title: "Kapitali i Ri",
+    description: "Hapur vendndodhja jonë e tretë me një kuzhinë me koncept të hapur",
   },
 ];
 
@@ -77,10 +77,12 @@ export default function About() {
             <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur-md">
               Est. 1995
             </span>
-            <h1 className="mb-6 font-serif text-5xl font-bold">Our Story</h1>
+            <h1 className="mb-6 font-serif text-5xl font-bold">
+              Historia Jonë
+            </h1>
             <p className="text-xl">
-              A family tradition of baking excellence, bringing joy to the
-              hearts of Tirana one pastry at a time.
+              Një traditë familjare e përkryerisë së pjekjes, duke sjellë gëzim
+              në zemrat e Tiranës një pastërtie në çdo kohë.
             </p>
           </div>
         </div>
@@ -112,7 +114,7 @@ export default function About() {
       <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="mb-16 text-center font-serif text-4xl font-bold text-gray-900">
-            Our Journey
+            Udhëtimi Ynë
           </h2>
           <div className="relative">
             <div className="absolute left-1/2 h-full w-1 -translate-x-1/2 transform bg-gradient-to-b from-rose-600 to-rose-300" />
@@ -156,20 +158,20 @@ export default function About() {
           <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
             <div>
               <h2 className="mb-6 font-serif text-4xl font-bold text-gray-900">
-                A Legacy of Excellence
+                Një Trashëgimi e Eksperiencës
               </h2>
               <p className="mb-6 text-gray-600">
-                Founded in 1995 by the Lika family, our bakery began as a small
-                shop with big dreams. Today, we're proud to be one of Albania's
-                most beloved bakeries, known for our commitment to quality and
-                tradition.
+                Themeluar në vitin 1995 nga familja Lika, pjekuria jonë filloi
+                si një dyqan i vogël me ëndrra të mëdha. Sot, jemi krenarë të
+                jemi një nga pjekuritë më të dashura të Shqipërisë, të njohura
+                për përkushtimin tonë ndaj cilësisë dhe traditës.
               </p>
               <p className="mb-6 text-gray-600">
-                We combine time-honored Albanian baking traditions with modern
-                techniques to create pastries and breads that delight our
-                customers. Every recipe has been perfected over generations,
-                ensuring that each bite tells our story of passion and
-                dedication.
+                Ne kombinoni traditat e pjekjes shqiptare të kaluara me teknikat
+                moderne për të krijuar pastërtitë dhe bukën që kënaqin
+                konsumatorët tanë. Çdo recetë është përkryer nëpër breza, duke
+                siguruar që çdo kafshim tregon historinë tonë të pasionit dhe
+                përkushtimit.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -214,7 +216,7 @@ export default function About() {
                       className="flex transform items-center gap-2 rounded-full bg-white px-6 py-3 text-gray-900 transition-colors hover:scale-105 hover:bg-rose-600 hover:text-white"
                     >
                       <MapPin className="h-5 w-5" />
-                      View on Map
+                      Shiko në Hartë
                     </a>
                   </div>
                 </div>

@@ -1,90 +1,85 @@
 import { ChevronRight, Clock, Star, Truck } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import ProductCard from "../components/ProductCard";
 
 const heroImages = [
   {
     url: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80",
-    alt: "Fresh Bakery",
+    alt: "Pasticeri i Freskët",
   },
   {
     url: "https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80",
-    alt: "Bakery Interior",
+    alt: "Brendësia e Pasticerisë",
   },
   {
     url: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80",
-    alt: "Fresh Pastries",
+    alt: "Pastritë e Freskëta",
   },
 ];
 
 const baklavaPictures = [
   {
     url: "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&q=80",
-    alt: "Traditional Baklava",
+    alt: "Baklava Tradicionale",
   },
   {
     url: "https://images.unsplash.com/photo-1598110750624-207050c4f28c?w=500&auto=format&fit=crop&q=80",
-    alt: "Pistachio Baklava",
+    alt: "Baklava me Pistac",
   },
   {
     url: "https://images.unsplash.com/photo-1617806501553-d3a6a3a7b227?w=500&auto=format&fit=crop&q=80",
-    alt: "Honey Baklava",
+    alt: "Baklava me Mjaltë",
   },
 ];
 
 const features = [
   {
     icon: Clock,
-    title: "Same Day Delivery",
-    description: "Order before 2 PM for same-day delivery",
+    title: "Dërgim në Ditën e Sotme",
+    description: "Porositni para orës 14:00 për dërgim në ditën e sotme",
   },
   {
     icon: Truck,
-    title: "Free Delivery",
-    description: "Free delivery for orders over 2500 LEK",
+    title: "Dërgim Falas",
+    description: "Dërgim falas për porosi mbi 2500 LEK",
   },
   {
     icon: Star,
-    title: "Premium Quality",
-    description: "Made fresh daily with premium ingredients",
+    title: "Cilësi Premium",
+    description: "Bërë të freskëta çdo ditë me përbërës premium",
   },
 ];
 
 const categoryShowcase = [
   {
-    name: "Traditional Pastries",
-    description: "Handcrafted with love using time-honored Albanian recipes passed down through generations",
-    image: "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&q=80",
-    products: [
-      "Baklava",
-      "Kadaif",
-      "Trilece",
-      "Revani"
-    ]
+    name: "Pastritë Tradicionale",
+    description:
+      "I punuara me dashuri duke përdorur receta tradicionale shqiptare të kaluar nga brezi në brez",
+    image:
+      "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&q=80",
+    products: ["Baklava", "Kadaif", "Trilece", "Revani"],
   },
   {
-    name: "Artisan Breads",
-    description: "Fresh, crusty, and aromatic breads baked daily using premium ingredients",
-    image: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&q=80",
-    products: [
-      "Sourdough",
-      "Baguette",
-      "Whole Wheat",
-      "Rye Bread"
-    ]
+    name: "Bukë Artisanale",
+    description:
+      "Bukë të freskëta, të krokëta dhe aromatike të pjekura çdo ditë me përbërës premium",
+    image:
+      "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&q=80",
+    products: ["Sourdough", "Baguette", "Grurë e Plotë", "Bukë Dëgërrasi"],
   },
   {
-    name: "Premium Cakes",
-    description: "Elegant and delicious cakes perfect for any special occasion",
-    image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80",
+    name: "Torta Premium",
+    description:
+      "Torta elegante dhe të shijshme perfekte për çdo rast të veçantë",
+    image:
+      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80",
     products: [
-      "Wedding Cakes",
-      "Birthday Cakes",
-      "Chocolate Gateaux",
-      "Fruit Cakes"
-    ]
-  }
+      "Torta Dasmash",
+      "Torta të Ditëlindjeve",
+      "Gateaux me Çokollatë",
+      "Torta me Fruta",
+    ],
+  },
 ];
 
 export default function Home() {
@@ -127,24 +122,25 @@ export default function Home() {
               key={image.url}
               src={image.url}
               alt={image.alt}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
                 index === currentImageIndex ? "opacity-100" : "opacity-0"
               }`}
             />
           ))}
           <div className="absolute inset-0 bg-black/40" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 h-full flex items-center">
-          <div className="text-white max-w-2xl">
-            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
-              Artisanal Bakery in the Heart of Tirana
+        <div className="relative mx-auto flex h-full max-w-7xl items-center px-4">
+          <div className="max-w-2xl text-white">
+            <h1 className="mb-6 font-serif text-5xl font-bold md:text-6xl">
+              Pasticeri Artisan në Zemër të Tiranës
             </h1>
-            <p className="text-xl mb-8">
-              Crafting moments of joy with our freshly baked goods since 1995
+            <p className="mb-8 text-xl">
+              Krijimi i momenteve të gëzimit me produktet tona të freskëta të
+              pjekura që nga viti 1995
             </p>
             <Link
               to="/pasticeri-lika/our-products"
-              className="w-fit bg-gradient-to-r from-rose-600 to-rose-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:from-rose-700 hover:to-rose-600 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center"
+              className="flex w-fit items-center rounded-full bg-gradient-to-r from-rose-600 to-rose-500 px-8 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:from-rose-700 hover:to-rose-600 hover:shadow-xl"
             >
               Eksploroni Produktet Tona
               <ChevronRight className="ml-2 h-5 w-5" />
@@ -154,39 +150,35 @@ export default function Home() {
       </section>
 
       {/* Baklava Showcase Section */}
-      <section className="py-24 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
+      <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 py-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex flex-col items-center gap-12 lg:flex-row">
             <div className="space-y-10 lg:w-1/2">
               <div className="inline-block">
-                <span className="bg-rose-600 bg-opacity-10 text-rose-500 px-4 py-2 rounded-full text-sm font-medium">
-                  Special Delivery Offer
+                <span className="rounded-full bg-rose-600 bg-opacity-10 px-4 py-2 text-sm font-medium text-rose-500">
+                  Ofertë Speciale e Dërgimit
                 </span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-white">
-                Experience Our Famous
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-600">
-                  {" "}
-                  Baklava
-                </span>
+              <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
+                Eksperienca e Baklavat Tonë të Njohur
               </h2>
-              <p className="text-gray-300 text-lg">
-                Indulge in our signature baklava, handcrafted daily using
-                premium nuts, delicate phyllo, and pure honey. Now available for
-                home delivery across Tirana.
+              <p className="text-lg text-gray-300">
+                Shijoni baklavat tonë të njohur, të punuara me dorë çdo ditë
+                duke përdorur arra premium, filoz të butë dhe mjaltë të pastër.
+                Tani në dispozicion për dërgim në shtëpi në të gjithë Tiranën.
               </p>
 
               <div className="grid grid-cols-3 gap-4">
                 {features.map((feature) => (
                   <div
                     key={feature.title}
-                    className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10"
+                    className="rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm"
                   >
-                    <feature.icon className="h-6 w-6 text-rose-500 mb-2" />
-                    <h3 className="text-white font-semibold text-sm mb-1">
+                    <feature.icon className="mb-2 h-6 w-6 text-rose-500" />
+                    <h3 className="mb-1 text-sm font-semibold text-white">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-400 text-xs">
+                    <p className="text-xs text-gray-400">
                       {feature.description}
                     </p>
                   </div>
@@ -195,23 +187,23 @@ export default function Home() {
             </div>
 
             <div className="w-full lg:w-1/2">
-              <div className="relative w-full h-[400px] md:h-[500px]">
-                <div className="absolute inset-0 bg-gradient-to-r from-rose-600/20 to-rose-500/20 rounded-3xl transform rotate-6" />
-                <div className="absolute inset-0 bg-gradient-to-r from-rose-600/20 to-rose-500/20 rounded-3xl transform -rotate-6" />
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl h-full">
+              <div className="relative h-[400px] w-full md:h-[500px]">
+                <div className="absolute inset-0 rotate-6 transform rounded-3xl bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
+                <div className="absolute inset-0 -rotate-6 transform rounded-3xl bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
+                <div className="relative h-full overflow-hidden rounded-3xl shadow-2xl">
                   {baklavaPictures.map((image, index) => (
                     <img
                       key={image.url}
                       src={image.url}
                       alt={image.alt}
-                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+                      className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ${
                         index === currentBaklavaIndex
-                          ? `opacity-100 scale-100 ${
+                          ? `scale-100 opacity-100 ${
                               isTransitioning
                                 ? "rotate-12 scale-110"
                                 : "rotate-0"
                             }`
-                          : "opacity-0 scale-90 -rotate-12"
+                          : "-rotate-12 scale-90 opacity-0"
                       }`}
                     />
                   ))}
@@ -223,15 +215,15 @@ export default function Home() {
       </section>
 
       {/* Category Showcase Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold text-gray-900 mb-4">
-              Explore Our Categories
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 font-serif text-4xl font-bold text-gray-900">
+              Eksploroni Kategoritë Tona
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Discover the artistry and tradition behind our diverse range of
-              products
+            <p className="mx-auto max-w-2xl text-gray-600">
+              Zbuloni artin dhe traditën pas gamës sonë të ndryshme të
+              produkteve
             </p>
           </div>
 
@@ -239,43 +231,44 @@ export default function Home() {
             {categoryShowcase.map((category, index) => (
               <div
                 key={category.name}
-                className={`flex flex-col lg:flex-row gap-12 items-center ${
+                className={`flex flex-col items-center gap-12 lg:flex-row ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
                 <div className="lg:w-1/2">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-rose-600/20 to-rose-500/20 rounded-3xl transform -rotate-3" />
+                    <div className="absolute inset-0 -rotate-3 transform rounded-3xl bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
                     <img
                       src={category.image}
                       alt={category.name}
-                      className="relative rounded-3xl shadow-xl w-full aspect-[4/3] object-cover transform hover:rotate-3 transition-transform duration-500"
+                      className="relative aspect-[4/3] w-full transform rounded-3xl object-cover shadow-xl transition-transform duration-500 hover:rotate-3"
                     />
                   </div>
                 </div>
-                <div className="lg:w-1/2 space-y-6">
-                  <h3 className="text-3xl font-serif font-bold text-gray-900">
+                <div className="space-y-6 lg:w-1/2">
+                  <h3 className="font-serif text-3xl font-bold text-gray-900">
                     {category.name}
                   </h3>
-                  <p className="text-gray-600 text-lg">
+                  <p className="text-lg text-gray-600">
                     {category.description}
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     {category.products.map((product) => (
                       <div
                         key={product}
-                        className="bg-rose-50 p-4 rounded-xl flex items-center"
+                        className="flex items-center rounded-xl bg-rose-50 p-4"
                       >
-                        <div className="w-2 h-2 rounded-full bg-rose-500 mr-3" />
+                        <div className="mr-3 h-2 w-2 rounded-full bg-rose-500" />
                         <span className="text-gray-800">{product}</span>
                       </div>
                     ))}
                   </div>
                   <Link
                     to="/pasticeri-lika/our-products"
-                    className="inline-flex items-center text-rose-600 hover:text-rose-700 transition-colors"
+                    className="inline-flex items-center text-rose-600 transition-colors hover:text-rose-700"
                   >
-                    View All Products <ChevronRight className="ml-1 h-4 w-4" />
+                    Shikoni të Gjitha Produktet{" "}
+                    <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
               </div>

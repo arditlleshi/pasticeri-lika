@@ -6,32 +6,32 @@ export default function Footer() {
   return (
     <footer className="bg-footer-gradient text-white">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="mx-auto max-w-7xl px-4 py-10">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Section */}
           <div>
-            <div className="md:-mt-1.5 flex items-center mb-6">
-              <div className="bg-gradient-to-r from-rose-600 to-rose-500 p-2 rounded-lg">
+            <div className="mb-6 flex items-center md:-mt-1.5">
+              <div className="rounded-lg bg-gradient-to-r from-rose-600 to-rose-500 p-2">
                 <Cake className="h-6 w-6 text-white" />
               </div>
-              <span className="ml-2 text-xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
+              <span className="ml-2 bg-gradient-to-r from-rose-600 to-rose-500 bg-clip-text font-serif text-xl font-bold text-transparent">
                 Pastiçeri Lika
               </span>
             </div>
-            <p className="text-gray-300 mb-6">
-              Crafting moments of joy with our freshly baked goods since 1995. A
-              family tradition of excellence in every bite.
+            <p className="mb-6 text-gray-300">
+              Krijimi i momenteve të gëzimit me produktet tona të pjekura që nga
+              viti 1995. Një traditë familjare e përkryerisë në çdo kafshim.
             </p>
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-gray-400 hover:text-rose-500 transition-colors"
+                className="text-gray-400 transition-colors hover:text-rose-500"
               >
                 <Instagram className="h-6 w-6" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-rose-500 transition-colors"
+                className="text-gray-400 transition-colors hover:text-rose-500"
               >
                 <Facebook className="h-6 w-6" />
               </a>
@@ -40,14 +40,14 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
+            <h4 className="mb-6 bg-gradient-to-r from-rose-600 to-rose-500 bg-clip-text text-lg font-semibold text-transparent">
               Quick Links
             </h4>
             <ul className="space-y-4">
               <li>
                 <Link
                   to="/pasticeri-lika"
-                  className={` hover:text-rose-500 transition-colors ${location.pathname == "/pasticeri-lika" ? "text-rose-500" : "text-gray-300"}`}
+                  className={`transition-colors hover:text-rose-500 ${location.pathname == "/pasticeri-lika" ? "text-rose-500" : "text-gray-300"}`}
                 >
                   Kreu
                 </Link>
@@ -55,7 +55,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/pasticeri-lika/our-products"
-                  className={` hover:text-rose-500 transition-colors ${location.pathname == "/pasticeri-lika/our-products" ? "text-rose-500" : "text-gray-300"}`}
+                  className={`transition-colors hover:text-rose-500 ${location.pathname == "/pasticeri-lika/our-products" ? "text-rose-500" : "text-gray-300"}`}
                 >
                   Produktet Tona
                 </Link>
@@ -63,7 +63,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/pasticeri-lika/gallery"
-                  className={` hover:text-rose-500 transition-colors ${location.pathname == "/pasticeri-lika/gallery" ? "text-rose-500" : "text-gray-300"}`}
+                  className={`transition-colors hover:text-rose-500 ${location.pathname == "/pasticeri-lika/gallery" ? "text-rose-500" : "text-gray-300"}`}
                 >
                   Galeria
                 </Link>
@@ -71,7 +71,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/pasticeri-lika/about-us"
-                  className={` hover:text-rose-500 transition-colors ${location.pathname == "/pasticeri-lika/about-us" ? "text-rose-500" : "text-gray-300"}`}
+                  className={`transition-colors hover:text-rose-500 ${location.pathname == "/pasticeri-lika/about-us" ? "text-rose-500" : "text-gray-300"}`}
                 >
                   Rreth Nesh
                 </Link>
@@ -79,7 +79,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/pasticeri-lika/contact-us"
-                  className={` hover:text-rose-500 transition-colors ${location.pathname == "/pasticeri-lika/contact-us" ? "text-rose-500" : "text-gray-300"}`}
+                  className={`transition-colors hover:text-rose-500 ${location.pathname == "/pasticeri-lika/contact-us" ? "text-rose-500" : "text-gray-300"}`}
                 >
                   Kontakt
                 </Link>
@@ -89,24 +89,24 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
+            <h4 className="mb-6 bg-gradient-to-r from-rose-600 to-rose-500 bg-clip-text text-lg font-semibold text-transparent">
               Kontakt
             </h4>
             <ul className="space-y-4">
               <li className="flex items-center text-gray-300">
-                <Phone className="h-5 w-5 mr-3 text-rose-500" />
+                <Phone className="mr-3 h-5 w-5 text-rose-500" />
                 <span>+355 67 400 4072</span>
               </li>
               <li className="flex items-center text-gray-300">
-                <Phone className="h-5 w-5 mr-3 text-rose-500" />
+                <Phone className="mr-3 h-5 w-5 text-rose-500" />
                 <span>+355 69 874 3912</span>
               </li>
               <li className="flex items-center text-gray-300">
-                <Mail className="h-5 w-5 mr-3 text-rose-500" />
+                <Mail className="mr-3 h-5 w-5 text-rose-500" />
                 <a href="mailto:info@pasticerilika.al">info@pasticerilika.al</a>
               </li>
               <li className="flex items-center text-gray-300">
-                <MapPin className="h-5 w-5 mr-3 text-rose-500" />
+                <MapPin className="mr-3 h-5 w-5 text-rose-500" />
                 <span>Tirana, Albania</span>
               </li>
             </ul>
@@ -114,7 +114,7 @@ export default function Footer() {
 
           {/* Opening Hours */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-500">
+            <h4 className="mb-6 bg-gradient-to-r from-rose-600 to-rose-500 bg-clip-text text-lg font-semibold text-transparent">
               Opening Hours
             </h4>
             <ul className="space-y-4">
@@ -135,9 +135,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className=" pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
+        <div className="border-t border-gray-800 pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-sm text-gray-400">
               © {new Date().getFullYear()} Pastiçeri Lika. All rights reserved.
             </p>
             {/* <div className="flex gap-6 text-sm">

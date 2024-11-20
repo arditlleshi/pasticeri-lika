@@ -1,33 +1,42 @@
 import { ChevronRight, Clock, Star, Truck } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import photo1 from "../assets/images/photo-1.avif";
+import photo2 from "../assets/images/photo-2.avif";
+import photo3 from "../assets/images/photo-3.avif";
+import bakllava1 from "../assets/images/bakllava-1.avif";
+import bakllava2 from "../assets/images/bakllava-2.avif";
+import bakllava3 from "../assets/images/bakllava-3.avif";
+import bakery1 from "../assets/images/bakery-1.avif";
+import bakery2 from "../assets/images/bakery-2.avif";
+import bakery3 from "../assets/images/bakery-3.avif";
 
 const heroImages = [
   {
-    url: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80",
+    url: photo1,
     alt: "Pasticeri i Freskët",
   },
   {
-    url: "https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80",
+    url: photo2,
     alt: "Brendësia e Pasticerisë",
   },
   {
-    url: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&q=80",
+    url: photo3,
     alt: "Pastritë e Freskëta",
   },
 ];
 
 const baklavaPictures = [
   {
-    url: "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&q=80",
+    url: bakllava1,
     alt: "Baklava Tradicionale",
   },
   {
-    url: "https://images.unsplash.com/photo-1598110750624-207050c4f28c?w=500&auto=format&fit=crop&q=80",
+    url: bakllava2,
     alt: "Baklava me Pistac",
   },
   {
-    url: "https://images.unsplash.com/photo-1617806501553-d3a6a3a7b227?w=500&auto=format&fit=crop&q=80",
+    url: bakllava3,
     alt: "Baklava me Mjaltë",
   },
 ];
@@ -52,27 +61,24 @@ const features = [
 
 const categoryShowcase = [
   {
-    name: "Pastritë Tradicionale",
+    name: "Ëmërtësia Tradicionale",
     description:
       "I punuara me dashuri duke përdorur receta tradicionale shqiptare të kaluar nga brezi në brez",
-    image:
-      "https://images.unsplash.com/photo-1519676867240-f03562e64548?auto=format&fit=crop&q=80",
+    image: bakery1,
     products: ["Baklava", "Kadaif", "Trilece", "Revani"],
   },
   {
     name: "Bukë Artisanale",
     description:
       "Bukë të freskëta, të krokëta dhe aromatike të pjekura çdo ditë me përbërës premium",
-    image:
-      "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&q=80",
+    image: bakery2,
     products: ["Sourdough", "Baguette", "Grurë e Plotë", "Bukë Dëgërrasi"],
   },
   {
     name: "Torta Premium",
     description:
       "Torta elegante dhe të shijshme perfekte për çdo rast të veçantë",
-    image:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80",
+    image: bakery3,
     products: [
       "Torta Dasmash",
       "Torta të Ditëlindjeve",

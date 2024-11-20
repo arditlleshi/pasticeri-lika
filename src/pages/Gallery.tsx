@@ -11,7 +11,6 @@ const cakeSubcategories: { [key: string]: string[] } = {
   Premium: ["Wedding Cakes", "Custom Design", "Special Occasion"],
 };
 
-// Mapping from display category names to internal category identifiers
 const categoryMapping: { [key: string]: string } = {
   "Pastritë Tradicionale": "Pastries",
   "Bukë Artisanale": "Breads",
@@ -19,16 +18,48 @@ const categoryMapping: { [key: string]: string } = {
 };
 
 export default function Gallery() {
-  // Initialize search parameters
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const categoryFromParams = searchParams.get("category");
 
-  // State management
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [selectedSubcategory, setSelectedSubcategory] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const productsGridRef = useRef<HTMLDivElement>(null);
+
+  // Track window width for responsiveness
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Determine if the current screen is large
+  const isLargeScreen = windowWidth > 1024;
+
+  // Determine if the selected category has subcategories
+  const hasSubcategories = selectedCategory === "Cakes";
+
+  // Calculate header height based on screen size and subcategories
+  const headerHeight = isLargeScreen
+    ? (hasSubcategories ? 197.6 : 150)
+    : (hasSubcategories ? 260 : 210);
+
+  // Helper function to scroll to the products grid
+  const scrollToProductsGrid = () => {
+    if (productsGridRef.current) {
+      const elementRect = productsGridRef.current.getBoundingClientRect();
+      const absoluteElementTop = elementRect.top + window.pageYOffset;
+      const offsetPosition = absoluteElementTop - headerHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 
   // Effect to handle category changes from URL
   useEffect(() => {
@@ -37,19 +68,13 @@ export default function Gallery() {
       if (mappedCategory && categories.includes(mappedCategory)) {
         setSelectedCategory(mappedCategory);
         setSelectedSubcategory("");
-        if (productsGridRef.current) {
-          console.log("productsGridRef.current.offsetTop 44", productsGridRef.current.offsetTop);
-          window.scrollTo({
-            top: 175,
-            behavior: "smooth",
-          });
-        }
+        scrollToProductsGrid();
       } else {
-        // If the category from params is invalid, reset to 'All'
         setSelectedCategory("All");
         setSelectedSubcategory("");
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryFromParams]);
 
   // Handler for category change via buttons
@@ -57,25 +82,22 @@ export default function Gallery() {
     setSelectedCategory(category);
     setSelectedSubcategory("");
     const params = new URLSearchParams();
+
     if (category !== "All") {
       const displayCategory = Object.keys(categoryMapping).find(
-        (key) => categoryMapping[key] === category
+        (key) => categoryMapping[key] === category,
       );
       if (displayCategory) {
         params.set("category", displayCategory);
       }
     }
+
     navigate({
       pathname: "/pasticeri-lika/gallery",
       search: params.toString(),
     });
-    if (productsGridRef.current) {
-      console.log("productsGridRef.current.offsetTop 76", productsGridRef.current.offsetTop);
-      window.scrollTo({
-        top: 175,
-        behavior: "smooth",
-      });
-    }
+
+    scrollToProductsGrid();
   };
 
   // Handler for subcategory change
@@ -91,12 +113,8 @@ export default function Gallery() {
       pathname: "/pasticeri-lika/gallery",
       search: params.toString(),
     });
-    if (productsGridRef.current) {
-      window.scrollTo({
-        top: 175,
-        behavior: "smooth",
-      });
-    }
+
+    scrollToProductsGrid();
   };
 
   // Effect to handle subcategory from URL (optional)
@@ -110,6 +128,7 @@ export default function Gallery() {
     ) {
       setSelectedSubcategory(subcategoryFromParams);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams, categoryFromParams, selectedCategory]);
 
   // Filter products based on selected filters
@@ -178,7 +197,7 @@ export default function Gallery() {
           </div>
 
           {/* Subcategories for Cakes */}
-          {selectedCategory === "Cakes" && (
+          {hasSubcategories && (
             <div className="mt-4 flex gap-2 overflow-x-auto">
               {Object.keys(cakeSubcategories).map((subcategory) => (
                 <button
@@ -199,11 +218,8 @@ export default function Gallery() {
       </div>
 
       {/* Products Grid */}
-      <div className="mx-auto max-w-7xl px-4 py-12">
-        <div
-          ref={productsGridRef}
-          className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4"
-        >
+      <div className="mx-auto max-w-7xl px-4 py-12" ref={productsGridRef}>
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <div

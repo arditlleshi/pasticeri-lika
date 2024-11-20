@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { baklavaImages, categoryShowcase, features, heroImages } from "../data/home-data";
 
-
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [currentBaklavaIndex, setCurrentBaklavaIndex] = useState(0);
@@ -72,7 +71,7 @@ export default function Home() {
       </section>
 
       {/* Baklava Showcase Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 py-24">
+      <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 py-28">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col items-center gap-12 lg:flex-row">
             <div className="space-y-10 lg:w-1/2">
@@ -108,28 +107,30 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-full lg:w-1/2">
-              <div className="relative h-[400px] w-full md:h-[500px]">
-                <div className="absolute inset-0 rotate-6 transform rounded-3xl bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
-                <div className="absolute inset-0 -rotate-6 transform rounded-3xl bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
-                <div className="relative h-full overflow-hidden rounded-3xl shadow-2xl">
-                  {baklavaImages.map((image, index) => (
-                    <img
-                      key={image.url}
-                      src={image.url}
-                      alt={image.alt}
-                      className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ${
-                        index === currentBaklavaIndex
-                          ? `scale-100 opacity-100 ${
-                              isTransitioning
-                                ? "rotate-12 scale-110"
-                                : "rotate-0"
-                            }`
-                          : "-rotate-12 scale-90 opacity-0"
-                      }`}
-                    />
-                  ))}
-                </div>
+            {/* Updated Image Div */}
+            <div className="relative aspect-[4/3] w-full lg:w-1/2">
+              {/* Gradient Overlays */}
+              <div className="absolute inset-0 rotate-6 transform rounded-3xl bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
+              <div className="absolute inset-0 -rotate-6 transform rounded-3xl bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
+
+              {/* Image Container */}
+              <div className="relative h-full overflow-hidden rounded-3xl shadow-2xl">
+                {baklavaImages.map((image, index) => (
+                  <img
+                    key={image.url}
+                    src={image.url}
+                    alt={image.alt}
+                    className={`absolute inset-0 h-full w-full object-cover transition-all duration-500 ${
+                      index === currentBaklavaIndex
+                        ? `scale-100 opacity-100 ${
+                            isTransitioning
+                              ? "rotate-12 scale-110"
+                              : "rotate-0"
+                          }`
+                        : "-rotate-12 scale-90 opacity-0"
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           </div>
@@ -157,15 +158,13 @@ export default function Home() {
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
-                <div className="lg:w-1/2">
-                  <div className="relative">
-                    <div className="absolute inset-0 -rotate-3 transform rounded-3xl bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
-                    <img
-                      src={category.image}
-                      alt={category.name}
-                      className="relative aspect-[4/3] w-full transform rounded-3xl object-cover shadow-xl transition-transform duration-500 hover:rotate-3"
-                    />
-                  </div>
+                <div className="relative lg:w-1/2">
+                  <div className="absolute inset-0 -rotate-3 transform rounded-3xl bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    className="relative aspect-[4/3] w-full transform rounded-3xl object-cover shadow-xl transition-transform duration-500 hover:rotate-3"
+                  />
                 </div>
                 <div className="space-y-6 lg:w-1/2">
                   <h3 className="font-serif text-3xl font-bold text-gray-900">

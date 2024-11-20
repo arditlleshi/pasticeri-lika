@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
-import { menuBarCategories } from "../data/menu-bar-categories";
-import { menuBarItems } from "../data/menu-bar-items";
+import { menuBarCategories, menuBarItems } from "../data/bar-menu-data";
 
 export default function BarMenu() {
   const [selectedCategory, setSelectedCategory] = useState<keyof typeof menuBarItems>("coffee");
@@ -130,30 +129,6 @@ export default function BarMenu() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Quick Actions */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <div className="flex flex-col gap-3">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
-          >
-            <svg
-              className="w-5 h-5 text-gray-600 group-hover:text-rose-600 transition-colors duration-300"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 10l7-7m0 0l7 7m-7-7v18"
-              />
-            </svg>
-          </button>
         </div>
       </div>
     </div>

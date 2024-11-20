@@ -1,21 +1,8 @@
 import { Search } from "lucide-react";
 import { useRef, useState, useEffect, useMemo } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { categories } from "../data/categories";
-import { products } from "../data/products";
 import { Product } from "../data/types";
-
-const cakeSubcategories: { [key: string]: string[] } = {
-  Frozen: ["Ice Cream Cakes", "Frozen Yogurt Cakes", "Gelato Cakes"],
-  Traditional: ["Chocolate", "Vanilla", "Red Velvet", "Carrot"],
-  Premium: ["Wedding Cakes", "Custom Design", "Special Occasion"],
-};
-
-const categoryMapping: { [key: string]: string } = {
-  "Pastritë Tradicionale": "Pastries",
-  "Bukë Artisanale": "Breads",
-  "Torta Premium": "Cakes",
-};
+import { cakeSubcategories, products, categoryMapping, categories } from "../data/gallery-data";
 
 export default function Gallery() {
   const [searchParams] = useSearchParams();

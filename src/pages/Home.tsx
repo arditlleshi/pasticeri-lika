@@ -1,92 +1,8 @@
-import { ChevronRight, Clock, Star, Truck } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import photo1 from "../assets/images/photo-1.avif";
-import photo2 from "../assets/images/photo-2.avif";
-import photo3 from "../assets/images/photo-3.avif";
-import bakllava1 from "../assets/images/bakllava-1.avif";
-import bakllava2 from "../assets/images/bakllava-2.avif";
-import bakllava3 from "../assets/images/bakllava-3.avif";
-import bakery1 from "../assets/images/bakery-1.avif";
-import bakery2 from "../assets/images/bakery-2.avif";
-import bakery3 from "../assets/images/bakery-3.avif";
+import { baklavaImages, categoryShowcase, features, heroImages } from "../data/home-data";
 
-const heroImages = [
-  {
-    url: photo1,
-    alt: "Pasticeri i Freskët",
-  },
-  {
-    url: photo2,
-    alt: "Brendësia e Pasticerisë",
-  },
-  {
-    url: photo3,
-    alt: "Pastritë e Freskëta",
-  },
-];
-
-const baklavaPictures = [
-  {
-    url: bakllava1,
-    alt: "Baklava Tradicionale",
-  },
-  {
-    url: bakllava2,
-    alt: "Baklava me Pistac",
-  },
-  {
-    url: bakllava3,
-    alt: "Baklava me Mjaltë",
-  },
-];
-
-const features = [
-  {
-    icon: Clock,
-    title: "Dërgim në Ditën e Sotme",
-    description: "Porositni para orës 14:00 për dërgim në ditën e sotme",
-  },
-  {
-    icon: Truck,
-    title: "Dërgim Falas",
-    description: "Dërgim falas për porosi mbi 2500 LEK",
-  },
-  {
-    icon: Star,
-    title: "Cilësi Premium",
-    description: "Bërë të freskëta çdo ditë me përbërës premium",
-  },
-];
-
-const categoryShowcase = [
-  {
-    name: "Ëmërtësia Tradicionale",
-    description:
-      "I punuara me dashuri duke përdorur receta tradicionale shqiptare të kaluar nga brezi në brez",
-    image: bakery1,
-    products: ["Baklava", "Kadaif", "Trilece", "Revani"],
-  },
-  {
-    name: "Bukë Artisanale",
-    description:
-      "Bukë të freskëta, të krokëta dhe aromatike të pjekura çdo ditë me përbërës premium",
-    image: bakery2,
-    products: ["Sourdough", "Baguette", "Grurë e Plotë", "Bukë Dëgërrasi"],
-  },
-  {
-    name: "Torta Premium",
-    description:
-      "Torta elegante dhe të shijshme perfekte për çdo rast të veçantë",
-    image: bakery3,
-    products: [
-      "Torta Dasmash",
-      "Torta të Ditëlindjeve",
-      "Gateaux me Çokollatë",
-      "Torta me Fruta",
-    ],
-  },
-];
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -104,7 +20,7 @@ export default function Home() {
       setIsTransitioning(true);
       setTimeout(() => {
         setCurrentBaklavaIndex((prevIndex) =>
-          prevIndex === baklavaPictures.length - 1 ? 0 : prevIndex + 1
+          prevIndex === baklavaImages.length - 1 ? 0 : prevIndex + 1
         );
         setTimeout(() => {
           setIsTransitioning(false);
@@ -197,7 +113,7 @@ export default function Home() {
                 <div className="absolute inset-0 rotate-6 transform rounded-3xl bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
                 <div className="absolute inset-0 -rotate-6 transform rounded-3xl bg-gradient-to-r from-rose-600/20 to-rose-500/20" />
                 <div className="relative h-full overflow-hidden rounded-3xl shadow-2xl">
-                  {baklavaPictures.map((image, index) => (
+                  {baklavaImages.map((image, index) => (
                     <img
                       key={image.url}
                       src={image.url}
@@ -271,7 +187,7 @@ export default function Home() {
                   </div>
                   <Link
                     to={`/pasticeri-lika/gallery?category=${encodeURIComponent(
-                      category.name
+                      category.name,
                     )}`}
                     className="inline-flex items-center text-rose-600 transition-colors hover:text-rose-700"
                   >
